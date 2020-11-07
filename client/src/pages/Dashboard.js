@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import navHead from "../components/navHead";
+import Display from "../components/Display";
 function Dashboard() {
     const location = useLocation();
     return (
         <>
    
-           <navHead/>
+           <Display/>
         
           
 

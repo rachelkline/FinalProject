@@ -1,9 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import LogSign from "./pages/Log-Sign";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import LogSign from "./pages/Log-Sign";
 import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { withRouter } from "react-router";
 import Display from "./components/Display";
