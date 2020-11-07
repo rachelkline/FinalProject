@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LogSign from "./pages/Log-Sign";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LogSign from "./pages/Log-Sign";
@@ -9,6 +11,7 @@ import Display from "./components/Display";
 
 function App() {
   return (
+
 <>
 
     
@@ -29,9 +32,12 @@ function App() {
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
     </div>
-    
-    </>
+   
 
+
+    
+      <LogSign />
+    </>
   );
 }
 

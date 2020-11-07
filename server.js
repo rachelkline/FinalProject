@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to Mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/blogExample", { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/myTrip", { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 // Serve up static assets (usually on heroku)
 if(process.env.NODE_ENV === "production") {

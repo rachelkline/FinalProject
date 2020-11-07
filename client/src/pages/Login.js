@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+
+
 function LogIn() {
-    
     const location = useLocation();
     return (
-
         <div className="container">
-         
+
             <h1>Log In</h1>
             <form className="login">
                 <div className="row">
@@ -25,7 +25,7 @@ function LogIn() {
                 </div>
             </form>
         </div>
-      
+
     )
 }
 
