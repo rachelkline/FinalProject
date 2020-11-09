@@ -6,6 +6,7 @@ import LoginForm from '../components/log-in'
 import Navbar from '../components/navbar'
 import NewTrip from "./newTrip";
 import Dashboard from "./Dashboard";
+import LogIn from "./Login";
 
 
 class LogSign extends Component {
@@ -62,7 +63,7 @@ class LogSign extends Component {
         {/* Routes to different components */}
         <Route
           exact path="/"
-          component={Dashboard} />
+          component={LoginForm} />
         <Route
           path="/login"
           render={() =>
@@ -74,6 +75,11 @@ class LogSign extends Component {
           path="/signup"
           render={() =>
             <Signup/>}
+        />
+        <Route
+          path="/dashboard"
+          render={() =>
+            <Dashboard/>}
         />
 
       </Router>
