@@ -35,14 +35,14 @@ class SideBar extends React.Component {
           {/* <p className="ml-3">Heading</p> */}
 
           <Nav.Item className="active">
-            <Nav.Link href="/">
+            <Nav.Link href="/dashboard">
               Trip Name
             </Nav.Link>
           </Nav.Item>
 
 
           <Nav.Item>
-            <Nav.Link href="/">
+            <Nav.Link href="/newtrip">
               New Trip
             </Nav.Link>
           </Nav.Item>
