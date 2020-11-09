@@ -10,7 +10,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "node scripts/seedDB.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,14 +24,11 @@
     "bootstrap": "^4.5.3",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-
     "mongoose": "^5.10.13",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-sidebar": "0.0.1",
     "react-collapse": "^5.0.1",
     "react-router-dom": "^5.2.0",
     "react-sidebar": "^3.0.2"
-
-
   }
 }

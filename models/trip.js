@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const tripSchema = new Schema({
+    users: [{type: Schema.Types.ObjectId, ref: "User"}],
     name: { type: String, require: true },
     location: { type: String, require: true },
     tripLength: { type: Number, require: true },
