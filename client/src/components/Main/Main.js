@@ -13,7 +13,9 @@ class Main extends React.Component {
   {/* Stack the columns on mobile by making one full-width and the other half-width */}
   <Row className="mt-5">
     <Col xs={12} md={6}>
-      THE NAME OF TRIP
+    <Card>
+  <Card.Body>NAME OF THE TRIP. </Card.Body>
+</Card>
     </Col>
     <Col xs={12} md={3}>
     <Card>

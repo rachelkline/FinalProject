@@ -13,7 +13,7 @@ class Demo1 extends React.Component {
     return <div>
       
     
-      <Card.Title>Budget</Card.Title>
+      <Card.Title><strong>Budget</strong></Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
       <Card.Text>
         Some quick example text to build on the card title and make up the bulk of

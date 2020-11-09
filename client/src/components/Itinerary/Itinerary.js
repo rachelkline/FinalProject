@@ -37,13 +37,13 @@ class Itinerary extends React.Component {
     return (
       <div>
         <Card>
-        {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">+</Button>}
 
         <Card.Body>
               
-          <Card.Title>Tuesday</Card.Title>
+          <Card.Title style={{ display: "flex" }}><strong>Tuesday</strong>{showHideDemo1 && <Button style={{ marginLeft: "auto" }} onClick={() => this.hideComponent("showHideDemo1")} className="pull-right" size="sm" variant="secondary">+</Button>}
+</Card.Title>
           
-      <Card.Subtitle className="mb-2 text-muted">November 2 2020</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted">November 2020</Card.Subtitle>
        
       {/* {this.state.dates.map((item, index) => ( */}
 
@@ -61,9 +61,9 @@ class Itinerary extends React.Component {
 
 />}
 {/* ))} */}
-  
+
           {showHideDemo2 && <AddEvent />}
-          {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">Cancel</Button>}
+          {showHideDemo2 && <Button className="mr-2" onClick={() => this.hideComponent("showHideDemo1")} variant="outline-primary">Cancel</Button>}
             {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">Confirm</Button>} 
 
           </Card.Body>
