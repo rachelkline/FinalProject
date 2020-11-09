@@ -17,7 +17,7 @@ function App() {
        
               
 
-   <Display />
+  
    
    
     
@@ -34,7 +34,7 @@ function App() {
 
 
     
-      <LogSign />
+   
     </>
   );
 }

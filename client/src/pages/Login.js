@@ -19,9 +19,9 @@ function LogIn() {
                 </div>
                 <div class="row">
                     <div class="col s2">
-                        <button type="submit" class="btn">Sign Up</button>
+                        <button type="submit" class="btn"><Link to="/dashboard" className={location.pathname === "/signup"}>sign in</Link></button>
                     </div>
-                    <p>Or Sign Up <Link to="/signup" className={location.pathname === "/signup"}>here</Link></p>
+                    <button type="submit" class="btn"><Link to="/signup" className={location.pathname === "/signup"}>sign up</Link></button>
                 </div>
             </form>
         </div>
