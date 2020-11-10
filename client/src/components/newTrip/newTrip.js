@@ -4,18 +4,55 @@ import "./style.css";
 import SideBar from "../sidebar/SideBar";
 import Content from "../content/Content";
 import { Row, Form, Card, Col, Container, Button } from "react-bootstrap";
+import API from "../../utils/API";
+import mongoose from "mongoose";
 
 class NewTrip extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     // Moblie first
     this.state = {
       isOpen: false,
-      isMobile: true
+      isMobile: true,
+      tripName: "",
+      tripLocation: "",
+      tripDates: "",
     };
 
     this.previousWidth = -1;
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange(e) {
+    let value = e.target.value;
+    const name = e.target.name;
+    this.setState({
+      [name]: value,
+    });
+    console.log(e.target)
+    console.log(this.state)
+  }
+
+  handleSubmit() {
+    if (this.state.tripName && this.state.tripLocation && this.state.tripDates) {
+      API.saveTrips({
+        name: this.state.tripName,
+        location: this.state.tripLocation,
+        tripLength: this.state.tripDates,
+      })
+        .then(() =>
+          this.setState({
+            tripName: "",
+            tripLocation: "",
+            tripDates: "",
+          })
+        )
+        .then(() => console.log("success!"))
+        .catch((err) => console.log(err));
+    }
   }
 
   updateWidth() {
@@ -26,12 +63,37 @@ class NewTrip extends React.Component {
 
     if (isMobile !== wasMobile) {
       this.setState({
-        isOpen: !isMobile
+        isOpen: !isMobile,
       });
     }
 
     this.previousWidth = width;
   }
+
+  // pickDates(num) {
+    // var i;
+  //   Date.prototype.addDays = function (days) {
+  //     var dat = new Date(this.valueOf());
+  //     dat.setDate(dat.getDate() + days);
+  //     return dat;
+  //   };
+  //   function getDates(startDate, stopDate) {
+  //     var dateArray = new Array();
+  //     var currentDate = startDate;
+  //     while (currentDate <= stopDate) {
+  //       dateArray.push(currentDate);
+  //       currentDate = currentDate.addDays(1);
+  //     }
+  //     return dateArray;
+  //   }
+  //   var dateArray = getDates(new Date(), new Date().addDays(num));
+  //   for (i = 0; i < dateArray.length; i++) {
+  //     console.log(dateArray[i]);
+  //     this.setState({
+  //       tripDates: dateArray
+  //     })
+  //   }
+  // }
 
   /**
    * Add event listener
@@ -57,81 +119,87 @@ class NewTrip extends React.Component {
       <div className="App wrapper">
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
         <Row>
-        <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
-        <Container>
-  {/* Stack the columns on mobile by making one full-width and the other half-width */}
+          <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
+          <Container>
+            {/* Stack the columns on mobile by making one full-width and the other half-width */}
 
-  <Row className="mt-3">
-    <Col xs={12} md={6}>
-    <Card className="shadow">
-          <Card.Body>
-    <div>
-      
-    
-      <Card.Title><strong>Join</strong></Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">If a trip has already been created, enter its unique trip code </Card.Subtitle>
-  
-  
-
-      <Form>
-    <Form.Group controlId="exampleForm.ControlInput1">
-      <Form.Control type="text" placeholder="Trip Code" />
-    </Form.Group>
-  
-  
-
-  </Form>
-  <Button variant="primary">Join Trip</Button>{' '}
-      {/* <Button variant="primary">Request Payment</Button>
+            <Row className="mt-3">
+              <Col xs={12} md={6}>
+                <Card className="shadow">
+                  <Card.Body>
+                    <div>
+                      <Card.Title>
+                        <strong>Join</strong>
+                      </Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">
+                        If a trip has already been created, enter its unique
+                        trip code{" "}
+                      </Card.Subtitle>
+                      <Form>
+                        <Form.Group controlId="exampleForm.ControlInput1">
+                          <Form.Control type="text" placeholder="Trip Code" />
+                        </Form.Group>
+                      </Form>
+                      <Button variant="primary">Join Trip</Button>{" "}
+                      {/* <Button variant="primary">Request Payment</Button>
       <Button variant="primary">Split Expense</Button> */}
-    
-  </div>
-  </Card.Body>
-        </Card>
-  
-    </Col>
-    <Col xs={12} md={6}>
-    <Card className="shadow">
-          <Card.Body>
-    <div>
-      
-    
-      <Card.Title><strong>Create</strong></Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">placeholder text</Card.Subtitle>
-  
-  
-
-      <Form>
-    <Form.Group controlId="exampleForm.ControlInput1">
-      <Form.Control type="text" placeholder="Event Name" />
-    </Form.Group>
-    <Form.Group controlId="exampleForm.ControlInput1">
-      <Form.Control type="text" placeholder="Location" />
-    </Form.Group>
-    <Form.Group controlId="exampleForm.ControlInput1">
-      <Form.Control type="text" placeholder="Placeholder for date picking method" />
-    </Form.Group>
-  
-  
-
-  </Form>
-  <Button variant="primary">Create Trip</Button>{' '}
-      {/* <Button variant="primary">Request Payment</Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col xs={12} md={6}>
+                <Card className="shadow">
+                  <Card.Body>
+                    <div>
+                      <Card.Title>
+                        <strong>Create</strong>
+                      </Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">
+                        placeholder text
+                      </Card.Subtitle>
+                      <Form onSubmit={this.handleSubmit}>
+                        <Form.Group
+                          id="tripName"
+                         
+                          onChange={this.handleInputChange}
+                          value={this.state.tripName}
+                        >
+                          <Form.Control type="text" placeholder="Event Name"  name="tripName"/>
+                        </Form.Group>
+                        <Form.Group
+                          id="tripLocation"
+                          
+                          onChange={this.handleInputChange}
+                          value={this.state.tripLocation}
+                        >
+                          <Form.Control type="text" placeholder="Location" name="tripLocation"/>
+                        </Form.Group>
+                        <Form.Group
+                          id="tripDates"
+                          
+                          onChange={this.handleInputChange}
+                          value={this.state.tripDates}
+                        >
+                          <Form.Control
+                            type="text"
+                            placeholder="Placeholder for date picking method"
+                            name="tripDates"
+                          />
+                        </Form.Group>
+                        <Button variant="primary" type="submit" >Create Trip</Button>{" "}
+                      </Form>
+                      
+                      {/* <Button variant="primary">Request Payment</Button>
       <Button variant="primary">Split Expense</Button> */}
-    
-  </div>
-  </Card.Body>
-        </Card>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
 
-    </Col>
-  </Row>
-
-  {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
-
-
-</Container>
-
-       </Row>
+            {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
+          </Container>
+        </Row>
       </div>
     );
   }
