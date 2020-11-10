@@ -8,7 +8,7 @@ mongoose.connect(
 
 const tripSeed = [
     {
-      users: [{}],
+      users: ["test1", "test2"],
       name:"Florida Trip",
       location: "Miami",
       tripLength: 5,
