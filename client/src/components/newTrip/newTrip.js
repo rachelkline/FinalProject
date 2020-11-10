@@ -63,12 +63,12 @@ class NewTrip extends React.Component {
 
   <Row className="mt-3">
     <Col xs={12} md={6}>
-    <Card>
+    <Card className="shadow">
           <Card.Body>
     <div>
       
     
-      <Card.Title>Join</Card.Title>
+      <Card.Title><strong>Join</strong></Card.Title>
       <Card.Subtitle className="mb-2 text-muted">If a trip has already been created, enter its unique trip code </Card.Subtitle>
   
   
@@ -91,12 +91,12 @@ class NewTrip extends React.Component {
   
     </Col>
     <Col xs={12} md={6}>
-    <Card>
+    <Card className="shadow">
           <Card.Body>
     <div>
       
     
-      <Card.Title>Create</Card.Title>
+      <Card.Title><strong>Create</strong></Card.Title>
       <Card.Subtitle className="mb-2 text-muted">placeholder text</Card.Subtitle>
   
   
@@ -104,7 +104,11 @@ class NewTrip extends React.Component {
       <Form>
     <Form.Group controlId="exampleForm.ControlInput1">
       <Form.Control type="text" placeholder="Event Name" />
+    </Form.Group>
+    <Form.Group controlId="exampleForm.ControlInput1">
       <Form.Control type="text" placeholder="Location" />
+    </Form.Group>
+    <Form.Group controlId="exampleForm.ControlInput1">
       <Form.Control type="text" placeholder="Placeholder for date picking method" />
     </Form.Group>
   

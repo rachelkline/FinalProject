@@ -1,0 +1,28 @@
+.btn-group, .btn-group-vertical {
+    position: relative;
+display: block;    
+border-radius: 2rem;
+}
+.btn-toggle{
+    border-radius: 2rem;
+
+}
+
+.btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+.btn-group>.btn:not(:first-child) {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.btn-group-sm>.btn, .btn-sm {
+
+    border-radius: 2rem;
+}
+
+.btn-light {
+    color: #212529;
+    background-color: #F7F6FB;
+    border-color: #F7F6FB;
+}

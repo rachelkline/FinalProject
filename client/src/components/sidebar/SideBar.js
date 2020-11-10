@@ -18,7 +18,7 @@ class SideBar extends React.Component {
     
        
        
-      <div className={classNames("sidebar", { "is-open": this.props.isOpen })}>
+      <div className={classNames("sidebar shadow", { "is-open": this.props.isOpen })}>
           
         <div className="flex-column pl-5 ml-5">
           <Button

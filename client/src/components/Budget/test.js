@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Demo1 from "./demo1";
 import Demo2 from "./demo2";
 import Demo3 from "./demo3";
+import "./style.css";
 
 class Test extends React.Component {
   constructor() {
@@ -39,18 +40,18 @@ class Test extends React.Component {
     const { showHideDemo1, showHideDemo2, showHideDemo3 } = this.state;
     return (
       <div>
-        <Card>
+        <Card className="shadow">
           <Card.Body>
             {showHideDemo1 && <Demo1 />}
-            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">Request Payment</Button>}
+            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="primary">Request Payment</Button>}
             {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Split Expense</Button>}
 
             {showHideDemo2 && <Demo2 />}
-            {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">Cancel</Button>}
+            {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="outline-primary">Cancel</Button>}
             {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">Confirm</Button>}
 
             {showHideDemo3 && <Demo3 />}
-            {showHideDemo3 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Cancel</Button>}
+            {showHideDemo3 && <Button onClick={() => this.hideComponent("showHideDemo3")} className="mr-2" variant="outline-primary">Cancel</Button>}
             {showHideDemo3 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Confirm</Button>}
 
 

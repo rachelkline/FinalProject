@@ -14,7 +14,7 @@ class Demo2 extends Component {
     return <div>
       
     
-    <Card.Title>Request Payment</Card.Title>
+    <Card.Title><strong>Request Payment</strong></Card.Title>
     <Card.Subtitle className="mb-2 text-muted">Select a Friend:</Card.Subtitle>
 
 
@@ -29,7 +29,7 @@ class Demo2 extends Component {
 {/* ))} */}
     <Form>
   <Form.Group controlId="exampleForm.ControlInput1">
-    <Form.Label>Enter an amount</Form.Label>
+    <Form.Label><span><strong>Enter Amount</strong></span></Form.Label>
     <Form.Control type="email" placeholder="$" />
   </Form.Group>
 

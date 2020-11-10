@@ -15,8 +15,8 @@ class Demo3 extends Component {
     return <div>
       
     
-    <Card.Title>Split Expense</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Select a Friend:</Card.Subtitle>
+    <Card.Title><strong>Split Expense</strong></Card.Title>
+    <Card.Subtitle className="mb-2 text-muted">Select one or more friends:</Card.Subtitle>
  {/* {this.state.friends.map((item, index) => ( */}
 
 <FriendPill
@@ -28,7 +28,7 @@ class Demo3 extends Component {
 {/* ))} */}
     <Form>
   <Form.Group controlId="exampleForm.ControlInput1">
-    <Form.Label>Enter an amount</Form.Label>
+    <Form.Label><span><strong>Enter Amount</strong></span>t</Form.Label>
     <Form.Control type="email" placeholder="$" />
   </Form.Group>
 

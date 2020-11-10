@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Nav } from "react-bootstrap";
 import Dates from "./dates";
 import Events from "./events";
 import AddEvent from "./addEvent";
@@ -12,6 +12,7 @@ class Itinerary extends React.Component {
       name: "React",
       showHideDemo1: true,
       showHideDemo2: false,
+      
     };
     this.hideComponent = this.hideComponent.bind(this);
   }
@@ -36,21 +37,22 @@ class Itinerary extends React.Component {
     const { showHideDemo1, showHideDemo2 } = this.state;
     return (
       <div>
-        <Card>
-        {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">+</Button>}
+        <Card className="shadow">
 
         <Card.Body>
               
-          <Card.Title>Tuesday</Card.Title>
+          <Card.Title style={{ display: "flex" }}><strong>Tuesday</strong>{showHideDemo1 && <Button style={{ marginLeft: "auto" }} onClick={() => this.hideComponent("showHideDemo1")} className="pull-right" size="sm" variant="secondary">+</Button>}
+</Card.Title>
           
-      <Card.Subtitle className="mb-2 text-muted">November 2 2020</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted">November 2020</Card.Subtitle>
        
       {/* {this.state.dates.map((item, index) => ( */}
-
+<Nav variant="pills" defaultActiveKey="/">
         {showHideDemo1 &&<Dates
     // date={item.date}
 />}
 {/* ))} */}
+</Nav>
 <hr/>
       {/* {this.state.dates.map((item, index) => ( */}
 
@@ -61,9 +63,9 @@ class Itinerary extends React.Component {
 
 />}
 {/* ))} */}
-  
+
           {showHideDemo2 && <AddEvent />}
-          {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">Cancel</Button>}
+          {showHideDemo2 && <Button className="mr-2" onClick={() => this.hideComponent("showHideDemo1")} variant="outline-primary">Cancel</Button>}
             {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} variant="primary">Confirm</Button>} 
 
           </Card.Body>

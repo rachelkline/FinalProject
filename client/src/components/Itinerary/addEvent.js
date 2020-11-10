@@ -14,7 +14,7 @@ class AddEvent extends Component {
     return <div>
       
     
-    <Card.Title>Add New Event</Card.Title>
+    <Card.Title><span><strong>Add new event</strong></span></Card.Title>
 
 
     <Form>

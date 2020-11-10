@@ -13,12 +13,13 @@ class Demo1 extends React.Component {
     return <div>
       
     
-      <Card.Title>Budget</Card.Title>
+      <Card.Title><strong>Budget</strong></Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
       <Card.Text>
         Some quick example text to build on the card title and make up the bulk of
         the card's content. This is where the graphs are going when we get to it or something idk
       </Card.Text>
+      <br/>
       {/* <Button variant="primary">Request Payment</Button>
       <Button variant="primary">Split Expense</Button> */}
     
