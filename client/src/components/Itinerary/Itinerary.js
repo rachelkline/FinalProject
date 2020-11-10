@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Nav } from "react-bootstrap";
 import Dates from "./dates";
 import Events from "./events";
 import AddEvent from "./addEvent";
@@ -12,6 +12,7 @@ class Itinerary extends React.Component {
       name: "React",
       showHideDemo1: true,
       showHideDemo2: false,
+      
     };
     this.hideComponent = this.hideComponent.bind(this);
   }
@@ -36,7 +37,7 @@ class Itinerary extends React.Component {
     const { showHideDemo1, showHideDemo2 } = this.state;
     return (
       <div>
-        <Card>
+        <Card className="shadow">
 
         <Card.Body>
               
@@ -46,11 +47,12 @@ class Itinerary extends React.Component {
       <Card.Subtitle className="mb-2 text-muted">November 2020</Card.Subtitle>
        
       {/* {this.state.dates.map((item, index) => ( */}
-
+<Nav variant="pills" defaultActiveKey="/">
         {showHideDemo1 &&<Dates
     // date={item.date}
 />}
 {/* ))} */}
+</Nav>
 <hr/>
       {/* {this.state.dates.map((item, index) => ( */}
 

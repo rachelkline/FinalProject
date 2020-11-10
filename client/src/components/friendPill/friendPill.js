@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./pill.css";
 import { Container, Row, Col, Card, Button, Form, Badge, ToggleButton, ButtonGroup } from "react-bootstrap";
 
 

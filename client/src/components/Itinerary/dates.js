@@ -1,25 +1,28 @@
 import React from "react";
-import "./style.css";
+import "./itinerary.css";
 import { Container, Row, Col, Card, Button, Form, Badge, Nav } from "react-bootstrap";
-
+const days = [
+    { name: 'Sally McSally', value: '1' },
+    { name: 'Bill Billerson', value: '2' },
+    { name: 'Frank Smith', value: '3' },
+    { name: 'Greg Smith', value: '4' },
+    { name: 'Greg Smith', value: '5' },
+  ];
 
 function Dates(props) {
     return (
-<>
+        <>
+        {days.map((day, i) => (
 
-<Nav variant="pills" defaultActiveKey="/">
+
+
     
-  <Nav.Item>
-      
-    <Nav.Link eventKey="link-1">{/* {props.date} */}4</Nav.Link>
+<Nav.Item>
+    <Nav.Link eventKey={"link-"+day.value}>{day.value}</Nav.Link>
   </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-2">5</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-3">6</Nav.Link>
-  </Nav.Item>
-</Nav>
+
+
+))}
       </>
     );
 }

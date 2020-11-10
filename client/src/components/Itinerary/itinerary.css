@@ -35,7 +35,7 @@ width: 49%;
 .nav-pills .nav-link {
     border-radius: 2rem;
 }
-.nav-item:hover {
+.nav-pills .nav-item:hover {
     background: #313b4c;
     color: #fff;
     transition: 0s;

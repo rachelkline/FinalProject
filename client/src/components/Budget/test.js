@@ -40,7 +40,7 @@ class Test extends React.Component {
     const { showHideDemo1, showHideDemo2, showHideDemo3 } = this.state;
     return (
       <div>
-        <Card>
+        <Card className="shadow">
           <Card.Body>
             {showHideDemo1 && <Demo1 />}
             {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="primary">Request Payment</Button>}

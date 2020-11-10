@@ -19,6 +19,7 @@ class Demo1 extends React.Component {
         Some quick example text to build on the card title and make up the bulk of
         the card's content. This is where the graphs are going when we get to it or something idk
       </Card.Text>
+      <br/>
       {/* <Button variant="primary">Request Payment</Button>
       <Button variant="primary">Split Expense</Button> */}
     

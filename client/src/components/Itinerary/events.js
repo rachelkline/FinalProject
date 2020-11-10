@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./itinerary.css";
 import { Container, Row, Col, Card, Button, Form, Badge, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
