@@ -1,21 +1,89 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Login from "./Login";
-import SignUp from "./Signup";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
+import axios from 'axios'
+import Signup from '../components/sign-up'
+import LoginForm from '../components/log-in'
+import Navbar from '../components/navbar'
 import NewTrip from "./newTrip";
 import Dashboard from "./Dashboard";
+import LogIn from "./Login";
 
 
-function LogSign() {
+class LogSign extends Component {
+    constructor() {
+        super()
+        this.state = {
+            loggedIn: false,
+            username: null
+        }
+        this.getUser = this.getUser.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
+        this.updateUser = this.updateUser.bind(this)
+    }
+
+    componentDidMount() {
+        this.getUser()
+    }
+
+    updateUser(userObject) {
+        this.setState(userObject)
+    }
+    
+    getUser() {
+        axios.get('/user/').then(response => {
+          console.log('Get user response: ')
+          console.log(response.data)
+          if (response.data.user) {
+            console.log('Get User: There is a user saved in the server session: ')
+    
+            this.setState({
+              loggedIn: true,
+              username: response.data.user.username
+            })
+          } else {
+            console.log('Get user: no user');
+            this.setState({
+              loggedIn: false,
+              username: null
+            })
+          }
+        })
+      }
+
+    // const location = useLocation();
+    render(){
     return (
         <Router>
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/newtrip" component={NewTrip} />
-        <Route exact path="/dashboard" component={Dashboard} />
+   
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        {/* greet user if logged in: */}
+        {this.state.loggedIn &&
+          <p>Join the party, {this.state.username}!</p>
+        }
+        {/* Routes to different components */}
+        <Route
+          exact path="/"
+          component={LoginForm} />
+        <Route
+          path="/login"
+          render={() =>
+            <LoginForm
+              updateUser={this.updateUser}
+            />}
+        />
+        <Route
+          path="/signup"
+          render={() =>
+            <Signup/>}
+        />
+        <Route
+          path="/dashboard"
+          render={() =>
+            <Dashboard/>}
+        />
 
-        </Router>
+      </Router>
     );
 }
-
+}
 export default LogSign;
