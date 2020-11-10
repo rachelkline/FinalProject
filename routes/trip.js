@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const tripController = require("../controllers/postController");
+const tripController = require("../controllers/tripController");
 
 // Post API Routes go here
 // /api/posts/

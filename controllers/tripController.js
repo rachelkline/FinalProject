@@ -1,4 +1,5 @@
 const db = require("../models");
+const mongoose = require("mongoose");
 
 module.exports = {
 	findAll: (req, res) => {
@@ -18,8 +19,11 @@ module.exports = {
 			.catch(err => console.log(err));
 	},
 	create: (req, res) => {
+		let data = req.body;
+		console.log(req.user._id)
+		data.users = [req.user._id]
 		db.Trip
-			.create(req.body)
+			.create(data)
 			.then(tripData => {
 			  res.json(tripData)
 			})

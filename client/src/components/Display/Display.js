@@ -60,10 +60,12 @@ class Display extends React.Component {
         <Row>
           
         <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
+
         
         <Col>
        <Main/>
        </Col>
+
        </Row>
       </div>
     );

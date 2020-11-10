@@ -3,7 +3,7 @@ const router = require("express").Router();
 const tripRoutes = require("./trip");
 
 // All routes go here
-router.use("/api/trip", tripRoutes);
+router.use("/api", tripRoutes);
 
 router.use((req, res) => {
 	res.sendFile(path.join(__dirname, "../client/build/index.html"));
