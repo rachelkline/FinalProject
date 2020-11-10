@@ -13,18 +13,22 @@ class Main extends React.Component {
   {/* Stack the columns on mobile by making one full-width and the other half-width */}
   <Row className="mt-5">
     <Col xs={12} md={6}>
-      THE NAME OF TRIP
+    {/* <Card className="shadow"> */}
+  {/* <Card.Body> */}
+      <h3><strong>NAME OF THE TRIP.</strong></h3> 
+      {/* </Card.Body> */}
+{/* </Card> */}
     </Col>
-    <Col xs={12} md={3}>
-    <Card>
+    {/* <Col xs={12} md={3}>
+    <Card className="shadow">
   <Card.Body>Location Goes Here. </Card.Body>
 </Card>
     </Col>
     <Col xs={12} md={3}>
-    <Card>
+    <Card className="shadow">
   <Card.Body>Code: 0G6TY54</Card.Body>
 </Card>
-    </Col>
+    </Col> */}
   </Row>
   <Row className="mt-3">
     <Col xs={12} md={6}>
@@ -33,7 +37,21 @@ class Main extends React.Component {
       <Nested/>
       </div>
     </Col>
+    
     <Col xs={12} md={6}>
+        <Row>
+        <Col xs={6} md={6}>
+    <Card className="shadow">
+  <Card.Body>Location Goes Here. </Card.Body>
+</Card>
+    </Col>
+    <Col xs={6} md={6}>
+    <Card className="shadow">
+  <Card.Body>Code: 0G6TY54</Card.Body>
+</Card>
+    </Col>
+        </Row>
+        <br/>
     <Itinerary/>
     </Col>
   </Row>
