@@ -12,7 +12,7 @@ class Main extends React.Component {
 <Container>
   {/* Stack the columns on mobile by making one full-width and the other half-width */}
   <Row className="mt-5">
-    <Col xs={12} md={6}>
+    <Col xs={12} sm={12} md={12} lg={6}>
     {/* <Card className="shadow"> */}
   {/* <Card.Body> */}
       <h3><strong>NAME OF THE TRIP.</strong></h3> 
@@ -31,21 +31,21 @@ class Main extends React.Component {
     </Col> */}
   </Row>
   <Row className="mt-3">
-    <Col xs={12} md={6}>
+    <Col xs={12} sm={12} md={12} lg={6}>
       <Test/>
       <div className="mt-3">
       <Nested/>
       </div>
     </Col>
     
-    <Col xs={12} md={6}>
+    <Col xs={12} sm={12} md={12} lg={6}>
         <Row>
-        <Col xs={6} md={6}>
+        <Col xs={12} sm={12} md={12} lg={6}>
     <Card className="shadow">
   <Card.Body>Location Goes Here. </Card.Body>
 </Card>
     </Col>
-    <Col xs={6} md={6}>
+    <Col xs={12} sm={12} md={12} lg={6}>
     <Card className="shadow">
   <Card.Body>Code: 0G6TY54</Card.Body>
 </Card>

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import SideBar from "../sidebar/SideBar";
 import Content from "../content/Content";
 import { Row, Form, Card, Col, Container, Button } from "react-bootstrap";
-
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
+const Example = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  return (
+    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+  );
+};
 class NewTrip extends React.Component {
   constructor(props) {
     super(props);
@@ -12,10 +20,21 @@ class NewTrip extends React.Component {
     // Moblie first
     this.state = {
       isOpen: false,
-      isMobile: true
+      isMobile: true,
+      startDate: new Date()
     };
-
+    this.handleChange = this.handleChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
     this.previousWidth = -1;
+  }
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    })
+  }
+  onFormSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.startDate)
   }
 
   updateWidth() {
@@ -29,6 +48,7 @@ class NewTrip extends React.Component {
         isOpen: !isMobile
       });
     }
+
 
     this.previousWidth = width;
   }
@@ -58,12 +78,14 @@ class NewTrip extends React.Component {
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
         <Row>
         <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
+        <Col>
         <Container>
+          
   {/* Stack the columns on mobile by making one full-width and the other half-width */}
 
   <Row className="mt-3">
-    <Col xs={12} md={6}>
-    <Card className="shadow">
+    <Col xs={12} sm={12} md={12} lg={6}>
+    <Card className="shadow mb-3">
           <Card.Body>
     <div>
       
@@ -90,11 +112,11 @@ class NewTrip extends React.Component {
         </Card>
   
     </Col>
-    <Col xs={12} md={6}>
-    <Card className="shadow">
+    <Col xs={12} sm={12} md={12} lg={6}>
+    <Card className="shadow mb-3">
           <Card.Body>
     <div>
-      
+
     
       <Card.Title><strong>Create</strong></Card.Title>
       <Card.Subtitle className="mb-2 text-muted">placeholder text</Card.Subtitle>
@@ -108,6 +130,20 @@ class NewTrip extends React.Component {
     <Form.Group controlId="exampleForm.ControlInput1">
       <Form.Control type="text" placeholder="Location" />
     </Form.Group>
+    <Form.Group controlId="exampleForm.ControlInput1">
+        <form onSubmit={ this.onFormSubmit }>
+        <div className="form-group">
+          <DatePicker
+          className="form-control"
+              selected={ this.state.startDate }
+              onChange={ this.handleChange }
+              name="startDate"
+              dateFormat="MM/dd/yyyy"
+          />
+          <button className="btn btn-dark">Show Date</button>
+        </div>
+      </form>
+      </Form.Group>
     <Form.Group controlId="exampleForm.ControlInput1">
       <Form.Control type="text" placeholder="Placeholder for date picking method" />
     </Form.Group>
@@ -128,9 +164,9 @@ class NewTrip extends React.Component {
 
   {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
 
-
+  
 </Container>
-
+</Col>
        </Row>
       </div>
     );
