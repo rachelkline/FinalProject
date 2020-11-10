@@ -4,7 +4,7 @@ import "./style.css";
 import SideBar from "../sidebar/SideBar";
 import Content from "../content/Content";
 import Main from "../Main/Main";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 class Display extends React.Component {
   constructor(props) {
@@ -58,8 +58,14 @@ class Display extends React.Component {
       <div className="App wrapper">
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
         <Row>
+          
         <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
-       <Main />
+
+        
+        <Col>
+       <Main/>
+       </Col>
+
        </Row>
       </div>
     );

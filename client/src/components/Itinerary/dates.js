@@ -12,17 +12,17 @@ const days = [
 function Dates(props) {
     return (
         <>
-        {days.map((day, i) => (
+        
 
 
 
     
-<Nav.Item>
-    <Nav.Link eventKey={"link-"+day.value}>{day.value}</Nav.Link>
-  </Nav.Item>
+
+    <Nav.Link eventKey={"link-"+props.date}>{props.date}</Nav.Link>
+  
 
 
-))}
+
       </>
     );
 }
