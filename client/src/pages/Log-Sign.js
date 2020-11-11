@@ -84,6 +84,11 @@ class LogSign extends Component {
           render={() =>
             <NewTrip />}
         />
+                <Route
+          path="/newtrip"
+          render={() =>
+            <NewTrip/>}
+        />
 
       </Router>
     );

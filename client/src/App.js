@@ -14,9 +14,9 @@ function App() {
     
       <LogSign />
 
-      <div className="App">
+      {/* <div className="App">
 
-    </div>
+    </div> */}
 
    
 

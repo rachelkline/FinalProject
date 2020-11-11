@@ -43,8 +43,8 @@ class Test extends React.Component {
         <Card className="shadow">
           <Card.Body>
             {showHideDemo1 && <Demo1 />}
-            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="primary">Request Payment</Button>}
-            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Split Expense</Button>}
+            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="primary">Request</Button>}
+            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Split</Button>}
 
             {showHideDemo2 && <Demo2 />}
             {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="outline-primary">Cancel</Button>}
