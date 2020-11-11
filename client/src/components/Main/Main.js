@@ -15,7 +15,7 @@ class Main extends React.Component {
     <Col xs={12} sm={12} md={12} lg={6}>
     {/* <Card className="shadow"> */}
   {/* <Card.Body> */}
-      <h3><strong>NAME OF THE TRIP.</strong></h3> 
+      <h2><strong>Name of the trip</strong></h2> 
       {/* </Card.Body> */}
 {/* </Card> */}
     </Col>
@@ -34,6 +34,7 @@ class Main extends React.Component {
     <Col xs={12} sm={12} md={12} lg={6}>
       <Test/>
       <div className="mt-3">
+          
       <Nested/>
       </div>
     </Col>

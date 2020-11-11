@@ -66,8 +66,9 @@ const dayss = [
   ];
   
 class Itinerary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+
+    super(props);
     this.state = {
       name: "React",
       showHideDemo1: true,
@@ -75,9 +76,12 @@ class Itinerary extends React.Component {
        dateSelected: {},
        newDate:[] 
     };
+
+
     this.hideComponent = this.hideComponent.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
 componentDidMount(){
     var dateArray = getDates(new Date(), (new Date()).addDays(2));
 for (i = 0; i < dateArray.length; i ++ ) {
@@ -110,6 +114,10 @@ var newDate = dateArray[i].getDate();
 this.setState({newDate: newDate})
 
 }
+
+handleClick(event) {
+    console.log(event);
+  }
   hideComponent(name) {
     console.log(name);
     switch (name) {
@@ -125,12 +133,7 @@ this.setState({newDate: newDate})
 
     }
   }
-  handleClick(event){
-      event.preventDefault()
-    //   this.setState()
-    console.log("test")
-      console.log(event.target)
-  }
+
   render() {
     const { showHideDemo1, showHideDemo2 } = this.state;
     return (
@@ -146,16 +149,13 @@ this.setState({newDate: newDate})
        
       {/* {this.state.dates.map((item, index) => ( */}
         
-<Nav variant="pills" defaultActiveKey="/">
-{dayss.map((day, i) => (
-<Nav.Item>
-        {showHideDemo1 &&<Dates date={day.date} onClick={() =>(this.handleClick)}
+{/* {dayss.map((day, i) => ( */}
+    <div>
+        <Dates onClick={() => this.handleClick()}
     // date={item.date}
-/>}
-</Nav.Item>
-
-))}
-</Nav>
+/>
+</div>
+{/* ))} */}
 
 <hr/>
       {/* {this.state.dates.map((item, index) => ( */}

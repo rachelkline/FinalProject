@@ -37,7 +37,7 @@ class Nested extends React.PureComponent {
                             <div className="config">
 
 
-                                <Card.Title style={{ display: "flex" }}><strong>{friend.name}</strong>
+                                <Card.Title  style={{ display: "flex" }}><span className="mt-1"><strong>{friend.name}</strong></span>
 
                                     <Badge className="ml-2" variant="danger">You owe $35</Badge>{' '}
                                     <input

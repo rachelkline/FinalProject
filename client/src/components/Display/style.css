@@ -14,6 +14,28 @@
     /*background: #fafafa;*/
     background-color: #F7F6FB;
   }
+  .span{
+    font-family: 'gotham', sans-serif;
+    color: rgb(58, 58, 58);
+
+
+  }
+  h1{
+    font-family: 'gotham', sans-serif;
+    color: rgb(58, 58, 58);
+  }
+  h2{
+    font-family: 'gotham', sans-serif;
+    color: rgb(58, 58, 58);
+  }
+  .card-title{
+    font-family: 'gotham', sans-serif;
+    color: rgb(58, 58, 58);
+
+  }
+  /* .text-muted{
+    font-family: 'gotham', sans-serif;
+  } */
   .container-fluid{
       padding: 0;
   }
@@ -51,7 +73,7 @@
   
   
   .sidebar-header {
-    background: #4f5f79;
+    background: #164D74;
     color: #adb5bd;
   }
   
