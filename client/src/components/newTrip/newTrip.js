@@ -30,6 +30,7 @@ class NewTrip extends React.Component {
 
       startDate: new Date(),
 
+      groupCode: "",
       tripName: "",
       tripLocation: "",
       tripDates: "",
@@ -165,8 +166,8 @@ class NewTrip extends React.Component {
                         trip code{" "}
                         </Card.Subtitle>
                         <Form>
-                          <Form.Group controlId="exampleForm.ControlInput1">
-                            <Form.Control type="text" placeholder="Trip Code" />
+                          <Form.Group id="groupCode" onChange={this.handleInputChange} value={this.state.groupCode}>
+                            <Form.Control type="text" placeholder="Trip Code" name="groupCode"/>
                           </Form.Group>
                         </Form>
                         <Button variant="primary">Join Trip</Button>{" "}
