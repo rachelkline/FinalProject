@@ -44,6 +44,7 @@ function FriendPill(props) {
                 </ToggleButton>
               ))}
             </ButtonGroup>
+
             <br/>
           </>
         );

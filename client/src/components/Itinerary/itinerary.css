@@ -46,3 +46,23 @@ width: 49%;
     background-color: #29D4B3;
     border-color: #29D4B3;
 }
+
+.btn-dark {
+    color: rgb(48, 48, 48);
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border: none;
+}
+.btn-dark:not(:disabled):not(.disabled).active, .btn-dark:not(:disabled):not(.disabled):active, .show>.btn-dark.dropdown-toggle {
+    color: #fff;
+    background-color: #164D74 !important;
+    border-color: #164D74 !important;
+}
+.btn-dark.focus{
+    box-shadow: 0 0 0 0 !important;
+    border-color: none ;
+}
+.btn.focus{
+    box-shadow: 0 0 0 0 !important;
+    border-color: none ;
+}

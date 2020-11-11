@@ -2,3 +2,6 @@
 .color-nav{
 background-color: #164D74 !important ;
 }
+.navbar-light .navbar-brand {
+    color: rgb(255, 255, 255);
+}
