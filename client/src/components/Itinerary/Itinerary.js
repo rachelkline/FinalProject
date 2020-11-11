@@ -66,8 +66,9 @@ const dayss = [
   ];
   
 class Itinerary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+
+    super(props);
     this.state = {
       name: "React",
       showHideDemo1: true,
@@ -75,6 +76,8 @@ class Itinerary extends React.Component {
        dateSelected: {},
        newDate:[] 
     };
+
+
     this.hideComponent = this.hideComponent.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }

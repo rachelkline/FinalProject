@@ -9,14 +9,17 @@ class NavBar extends React.Component {
     return (
       <Navbar
         bg="light"
-        className="navbar shadow p-3 bg-white rounded color-nav"
+        className="navbar shadow p-3 bg-white color-nav"
         expand
       >
         <Button variant="outline-info" onClick={this.props.toggle}>
           <FontAwesomeIcon icon={faAlignLeft} />
         </Button>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-
+        <Navbar.Brand href="#home" className="ml-4 pt-2">
+ 
+      React Bootstrap
+    </Navbar.Brand>
       </Navbar>
       
     );

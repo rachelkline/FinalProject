@@ -15,8 +15,8 @@ class Demo3 extends Component {
     return <div>
       
     
-    <Card.Title><strong>Split Expense</strong></Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Select one or more friends:</Card.Subtitle>
+    <Card.Title><strong>Send Payment</strong></Card.Title>
+    <Card.Subtitle className="mb-2 text-muted">Select a friend:</Card.Subtitle>
  {/* {this.state.friends.map((item, index) => ( */}
 
 <FriendPill
