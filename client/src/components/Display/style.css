@@ -10,31 +10,31 @@
   
   body {
     /*font-family: 'Poppins', sans-serif;*/
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'helvetica', sans-serif;
     /*background: #fafafa;*/
     background-color: #F7F6FB;
   }
   .span{
-    font-family: 'gotham', sans-serif;
+    font-family: 'helvetica', sans-serif;
     color: rgb(58, 58, 58);
 
 
   }
   h1{
-    font-family: 'gotham', sans-serif;
+    font-family: 'helvetica', sans-serif;
     color: rgb(58, 58, 58);
   }
   h2{
-    font-family: 'gotham', sans-serif;
+    font-family: 'helvetica', sans-serif;
     color: rgb(58, 58, 58);
   }
   .card-title{
-    font-family: 'gotham', sans-serif;
+    font-family: 'helvetica', sans-serif;
     color: rgb(58, 58, 58);
 
   }
   /* .text-muted{
-    font-family: 'gotham', sans-serif;
+    font-family: 'helvetica', sans-serif;
   } */
   .container-fluid{
       padding: 0;
