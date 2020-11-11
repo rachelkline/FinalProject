@@ -6,8 +6,14 @@ export default {
     return axios.get("/api/trip");
   },
   // Gets the book with the given id
-  getTrips: function(id) {
+  getTrip: function(id) {
     return axios.get("/api/trip/" + id);
+  },
+  getUserTrip: function() {
+    return axios.get("/api/trip");
+  },
+  addToTrip: function(id) {
+    return axios.put("/api/trip/" + id)
   },
   // Deletes the book with the given id
   deleteTrip: function(id) {

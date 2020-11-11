@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API"
 import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
 import axios from 'axios'
 import Signup from '../components/sign-up'
@@ -7,9 +8,11 @@ import Navbar from '../components/navbar'
 import NewTrip from "./newTrip";
 import Dashboard from "./Dashboard";
 import LogIn from "./Login";
+import Display from "../components/Display";
 
 
 class LogSign extends Component {
+  
     constructor() {
         super()
         this.state = {
@@ -19,14 +22,31 @@ class LogSign extends Component {
         this.getUser = this.getUser.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
         this.updateUser = this.updateUser.bind(this)
+        this.getTrips = this.getTrips.bind(this)
     }
+
+    
 
     componentDidMount() {
         this.getUser()
+        this.getTrips()
     }
 
     updateUser(userObject) {
         this.setState(userObject)
+    }
+
+    
+
+    getTrips() { 
+      var tripArr = []   
+        API.getUserTrip({})
+        .then(results => {
+          // console.log(results.data)
+          tripArr.push(results.data)
+        });
+        
+        console.log(tripArr)
     }
     
     getUser() {
@@ -77,17 +97,12 @@ class LogSign extends Component {
         <Route
           path="/dashboard"
           render={() =>
-            <Dashboard />}
+            <Display trips={this.tripArr}/>}
         />
         <Route
           path="/newtrip"
           render={() =>
             <NewTrip />}
-        />
-                <Route
-          path="/newtrip"
-          render={() =>
-            <NewTrip/>}
         />
 
       </Router>
