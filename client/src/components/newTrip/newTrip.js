@@ -36,12 +36,13 @@ class NewTrip extends React.Component {
     console.log(this.state)
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     if (this.state.tripName && this.state.tripLocation && this.state.tripDates) {
       API.saveTrips({
         name: this.state.tripName,
         location: this.state.tripLocation,
-        tripLength: this.state.tripDates,
+        tripLength: this.pickDates(parseInt(this.state.tripDates)),
       })
         .then(() =>
           this.setState({
@@ -70,30 +71,27 @@ class NewTrip extends React.Component {
     this.previousWidth = width;
   }
 
-  // pickDates(num) {
-    // var i;
-  //   Date.prototype.addDays = function (days) {
-  //     var dat = new Date(this.valueOf());
-  //     dat.setDate(dat.getDate() + days);
-  //     return dat;
-  //   };
-  //   function getDates(startDate, stopDate) {
-  //     var dateArray = new Array();
-  //     var currentDate = startDate;
-  //     while (currentDate <= stopDate) {
-  //       dateArray.push(currentDate);
-  //       currentDate = currentDate.addDays(1);
-  //     }
-  //     return dateArray;
-  //   }
-  //   var dateArray = getDates(new Date(), new Date().addDays(num));
-  //   for (i = 0; i < dateArray.length; i++) {
-  //     console.log(dateArray[i]);
-  //     this.setState({
-  //       tripDates: dateArray
-  //     })
-  //   }
-  // }
+  pickDates(num) {
+    var i;
+    Date.prototype.addDays = function (days) {
+      var dat = new Date(this.valueOf());
+      dat.setDate(dat.getDate() + days);
+      return dat;
+    };
+    function getDates(startDate, stopDate) {
+      var dateArray = new Array();
+      var currentDate = startDate;
+      while (currentDate <= stopDate) {
+        dateArray.push(currentDate);
+        currentDate = currentDate.addDays(1);
+      }
+      return dateArray;
+    }
+    var dateArray = getDates(new Date(), new Date().addDays(num));
+    for (i = 0; i < dateArray.length; i++) {
+      console.log(dateArray[i]);
+    }
+  }
 
   /**
    * Add event listener
