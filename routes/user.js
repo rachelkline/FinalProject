@@ -1,26 +1,37 @@
 const express = require('express')
+const mongoose = require('mongoose');
 const router = express.Router()
-const User = require('../models/user')
+
 const passport = require('../passport')
+
+const User = mongoose.model('User');
 
 router.post('/', (req, res) => {
     console.log('user signup');
 
-    const { username, password } = req.body
+    const { username, password } = req.body    
+
+    if (!username || !password) {
+        return res.status(422).json({
+            error: 'username and/or password is required',
+        });
+    }
+
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
         if (err) {
             console.log('User.js post error: ', err)
-        } else if (user) {
-            res.json({
+        } 
+        else if (user) {
+            res.status(422).json({
                 error: `Sorry, already a user with the username: ${username}`
             })
-        }
+        } 
         else {
-            const newUser = new User({
-                username: username,
-                password: password
-            })
+            const newUser = new User({username});
+
+            newUser.setPassword(password);
+
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
                 res.json(savedUser)
@@ -33,8 +44,9 @@ router.post(
     '/login',
     function (req, res, next) {
         console.log('routes/user.js, login, req.body: ');
-        console.log(req.body)
-        next()
+        console.log(req.body);
+
+        next();
     },
     passport.authenticate('local'),
     (req, res) => {
@@ -47,21 +59,25 @@ router.post(
 )
 
 router.get('/', (req, res, next) => {
-    console.log('===== user!!======')
+    console.log('===== user!!====== blah')
     console.log(req.user)
     if (req.user) {
+        console.log(1);
         res.json({ user: req.user })
     } else {
+        console.log(2);
         res.json({ user: null })
     }
 })
 
 router.post('/logout', (req, res) => {
+    console.log(req.user);
+
     if (req.user) {
-        req.logout()
-        res.send({ msg: 'logging out' })
+        req.logout();
+        res.redirect('/login');
     } else {
-        res.send({ msg: 'no user to log out' })
+        res.status(400).send('no user to log out');
     }
 })
 

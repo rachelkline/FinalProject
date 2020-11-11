@@ -4,6 +4,7 @@ import Dates from "./dates";
 import Events from "./events";
 import AddEvent from "./addEvent";
 // import Demo3 from "./demo3";
+
 const dayss = [
     { name: 'Monday', date: '1', month: 'November 2020' },
     { name: 'Tuesday', date: '2', month: 'November 2020' },
@@ -18,12 +19,14 @@ const dayss = [
     { title: 'Do the thing', location: 'Delaware', time: '4:00pm' },
     { title: 'Do the thing', location: 'Delaware', time: '4:00pm' },
   ];
+
   const radios = [
     { name: 'Sally McSally', value: '1' },
     { name: 'Bill Billerson', value: '2' },
     { name: 'Frank Smith', value: '3' },
     { name: 'Greg Smith', value: '4' },
   ];
+
 class Itinerary extends React.Component {
   constructor(props) {
     super(props);
@@ -36,11 +39,13 @@ class Itinerary extends React.Component {
     this.hideComponent = this.hideComponent.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
 handleClick(dateIndex) {
     console.log('test');
     this.setState({ dateIndex: dateIndex - 1 });
     console.log(dateIndex);
   }
+
   hideComponent(name) {
     console.log(name);
     switch (name) {
@@ -54,6 +59,7 @@ handleClick(dateIndex) {
         break;
     }
   }
+
   render() {
     const { showHideDemo1, showHideDemo2 } = this.state;
     return (
@@ -64,6 +70,7 @@ handleClick(dateIndex) {
 </Card.Title>
       <Card.Subtitle className="mb-2 text-muted">November 2020</Card.Subtitle>
       {/* {this.state.dates.map((item, index) => ( */}
+
 {/* {days.map((day, i) => ( */}
     <div>
         <Dates radios={radios} onClick={this.handleClick} 
@@ -71,6 +78,7 @@ handleClick(dateIndex) {
 />
 </div>
  {/* ))}  */}
+
 <hr/>
       {/* {this.state.dates.map((item, index) => ( */}
         {showHideDemo1 &&<Events
