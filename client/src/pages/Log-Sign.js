@@ -60,16 +60,6 @@ class LogSign extends Component {
         }
         {/* Routes to different components */}
         <Route
-          exact path="/"
-          component={LoginForm} />
-        <Route
-          path="/login"
-          render={() =>
-            <LoginForm
-              updateUser={this.updateUser}
-            />}
-        />
-        <Route
           path="/signup"
           render={() =>
             <Signup/>}
@@ -84,10 +74,14 @@ class LogSign extends Component {
           render={() =>
             <NewTrip />}
         />
-                <Route
-          path="/newtrip"
+        <Route
+          exact 
+          path={["/login", "/"]}
           render={() =>
-            <NewTrip/>}
+            <LoginForm
+              updateUser={this.updateUser}
+            />
+          }
         />
 
       </Router>

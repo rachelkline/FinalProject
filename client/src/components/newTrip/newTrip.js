@@ -9,18 +9,7 @@ import mongoose from "mongoose";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-const dateSelection = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-  return (
-    <>
-    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-    <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
-    </>
-  );
-};
-
-
+import { Redirect } from "react-router-dom";
 
 
 class NewTrip extends React.Component {
@@ -72,7 +61,9 @@ class NewTrip extends React.Component {
             tripDates: "",
           })
         )
-        .then(() => console.log("success!"))
+        .then(() => {
+          console.log("success!"); 
+        })
         .catch((err) => console.log(err));
     }
   }
