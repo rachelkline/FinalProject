@@ -11,7 +11,7 @@ require('./models/user');
 
 // mongoose.set('debug', true);
 
-mongoose.connect(uri).then(
+mongoose.connect(process.env.MONGODB_URI || uri, { useNewUrlParser: true }).then(
     () => { 
         /** ready to use. The `mongoose.connect()` promise resolves to undefined. */ 
         console.log('Connected to Mongo');  
