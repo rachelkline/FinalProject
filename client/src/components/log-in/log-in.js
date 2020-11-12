@@ -33,7 +33,7 @@ const LoginForm = function({setComponentName = () => {}}) {
       })
       .then((response) => {
         if (response.status === 200) {
-          setRedirectTo("/dashboard");
+          setRedirectTo("/newtrip");
 
           updateUser(username);
         }

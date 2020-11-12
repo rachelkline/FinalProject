@@ -26,9 +26,10 @@ const LogSign = function(props) {
   const getTrips= () => { 
     // var tripArr = []   
       API.getUserTrip({})
-      .then(results => 
-        // console.log(results.data),
+      .then(results => {
+        console.log(results.data)
         setTrips(results.data)
+      }
       )
       .catch(err => console.log(err));
   }
@@ -44,17 +45,13 @@ const LogSign = function(props) {
       <Navbar updateUser={updateUser} loggedIn={!!username} />
       {/* greet user if logged in: */}
       {username && <p>Join the party, {username}!</p>}
-      {/* Routes to different components */}
-      {/* <Route
-        path="/"
-        render={() => <Login updateUser={this.updateUser} />}
-      /> */}
-      <Route path="/dashboard" render={() => 
+      <Route path="/trip/:id" render={() => <Dashboard trips={trips}/>}/>
+      {/* <Route path="/dashboard" render={() => 
       <Dashboard 
         trips={trips}
       />} 
-      />
-      <Route path="/newtrip" render={() => <NewTrip />} />
+      /> */}
+      <Route path="/newtrip" render={() => <NewTrip trips={trips}/>} />
     </Router>
   );
 }

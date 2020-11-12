@@ -6,6 +6,9 @@ import Nested from "../Friends/Friends";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       // <Container fluid className="p-3">
@@ -16,7 +19,7 @@ class Main extends React.Component {
             {/* <Card className="shadow"> */}
             {/* <Card.Body> */}
             <h2>
-              <strong>Name of the trip</strong>
+              <strong>{this.props.trip.name}</strong>
             </h2>
             {/* </Card.Body> */}
             {/* </Card> */}
