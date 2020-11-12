@@ -42,6 +42,6 @@ app.use('/user', user)
 app.use(routes)
 
 // Starting Server 
-app.listen(PORT, () => {
+app.listen(process.env.PORT + 1, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 })
