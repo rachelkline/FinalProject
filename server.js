@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 app.use(
 	session({
 		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
-		// store: new MongoStore({ mongooseConnection: dbConnection }),
+		store: new MongoStore({ mongooseConnection: dbConnection }),
 		resave: false, //required
 		saveUninitialized: false, //required
 	})
@@ -37,12 +37,11 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-
 // Routes
 app.use('/user', user)
 app.use(routes)
 
 // Starting Server 
-app.listen(PORT, () => {
+app.listen(process.env.PORT + 1, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 })

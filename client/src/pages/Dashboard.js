@@ -1,12 +1,23 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, {useContext} from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Display from "../components/Display";
+import {AuthContext} from "../contexts/auth-provider"; 
+
 function Dashboard(props) {
     const location = useLocation();
+    let { id } = useParams();
+    const selectedTrip = props.trips.filter(trip => trip._id === id);
+    console.log(id);
+    console.log(selectedTrip);
+    console.log(props);
+
+    
+        
     return (
         <>
-   
-           <Display trips={props.trips}/>
+            {props.trips.length > 0 &&
+           <Display trips={props.trips} trip={selectedTrip[0]}/>
+           }
         
           
 

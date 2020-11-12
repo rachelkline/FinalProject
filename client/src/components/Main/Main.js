@@ -6,6 +6,9 @@ import Nested from "../Friends/Friends";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       // <Container fluid className="p-3">
@@ -16,7 +19,7 @@ class Main extends React.Component {
             {/* <Card className="shadow"> */}
             {/* <Card.Body> */}
             <h2>
-              <strong>Name of the trip</strong>
+              <strong>{this.props.trip.name}</strong>
             </h2>
             {/* </Card.Body> */}
             {/* </Card> */}
@@ -42,6 +45,7 @@ class Main extends React.Component {
 
           <Col xs={12} sm={12} md={12} lg={6}>
             <Row>
+
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Card className="shadow ">
                   <Card.Body>Location Goes Here. </Card.Body>
@@ -50,11 +54,12 @@ class Main extends React.Component {
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Card className="shadow mt-3">
                   <Card.Body>Code: 0G6TY54</Card.Body>
+
                 </Card>
               </Col>
             </Row>
             <br />
-            <Itinerary />
+            <Itinerary trip={this.props.trip} />
           </Col>
         </Row>
 
