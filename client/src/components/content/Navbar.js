@@ -16,9 +16,9 @@ class NavBar extends React.Component {
           <FontAwesomeIcon icon={faAlignLeft} />
         </Button>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Brand href="#home" className="ml-4 pt-2">
+        <Navbar.Brand href="/dashboard" className="ml-4 pt-2">
  
-      React Bootstrap
+      Travel Buddy
     </Navbar.Brand>
       </Navbar>
       
