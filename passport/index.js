@@ -1,6 +1,8 @@
+const mongoose = require('mongoose');
 const passport = require('passport')
 const LocalStrategy = require('./localStrategy')
-const User = require('../models/user')
+
+const User = mongoose.model('User');
 
 // called on login, saves the id to session req.session.passport.user = {id:'..'}
 passport.serializeUser((user, done) => {

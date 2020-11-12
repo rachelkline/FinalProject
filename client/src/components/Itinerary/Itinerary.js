@@ -11,12 +11,14 @@ const dayss = [
     { name: 'Thursday', date: '4', month: 'November 2020' },
     { name: 'Friday', date: '5', month: 'November 2020' }
   ];
-  const events = [
-    [{ title: 'Do the thing', location: 'Delaware', time: '4:00pm' },
-    { title: 'Do the thing', location: 'Delaware', time: '4:00pm' }],
-    { title: 'Do the thing', location: 'Delaware', time: '4:00pm' },
-    { title: 'Do the thing', location: 'Delaware', time: '4:00pm' },
-    { title: 'Do the thing', location: 'Delaware', time: '4:00pm' },
+  var days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
   const radios = [
     { name: 'Sally McSally', value: '1' },
