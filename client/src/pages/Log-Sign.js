@@ -13,6 +13,7 @@ import NewTrip from "./newTrip";
 import Dashboard from "./Dashboard";
 import Login from "./Login";
 import {AuthContext} from "../contexts/auth-provider"; 
+import API from "../utils/API";
 
 const LogSign = function(props) {
   const [state, setState] = useState({
@@ -20,9 +21,20 @@ const LogSign = function(props) {
     username: null
   });
 
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
+  const getTrips= () => { 
+    var tripArr = []   
+      API.getUserTrip({})
+      .then(results => {
+        // console.log(results.data)
+        tripArr.push(results.data)
+      });
+      
+      console.log(tripArr)
+  }
+
+  useEffect(() => {
+    getTrips();
+  }, []);
 
   const {user: username, updateUser} = useContext(AuthContext);
   
