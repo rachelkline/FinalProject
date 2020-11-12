@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { OverlayTrigger, Col, Card, Button, Overlay } from "react-bootstrap";
+import { OverlayTrigger, Col, Card, Button, Overlay, Container } from "react-bootstrap";
 import { Tooltip } from '@devexpress/dx-react-chart-bootstrap4';
 import { Palette } from '@devexpress/dx-react-chart';
 import {
@@ -69,10 +69,10 @@ export default class Graph extends React.PureComponent {
     </Card.Subtitle>
     <Card.Subtitle className="mb-2 text-muted">
       {' '}
-      {selection.length ? "To split them evenly, each other member would pay $"+ Math.round(data[selection[0].point].budget/(data.length)) : undefined}
+      {selection.length ? "To split them evenly, other members would each pay $"+ Math.round(data[selection[0].point].budget/(data.length)) : undefined}
     </Card.Subtitle>
       <div className="card">
- 
+      <Container>
         <Chart 
         className="tessst"
           data={chartData}
@@ -100,6 +100,7 @@ export default class Graph extends React.PureComponent {
           <Animation />
           
         </Chart>
+        </Container>
       </div>
       </div>
     );

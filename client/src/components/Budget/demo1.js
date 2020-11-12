@@ -15,7 +15,9 @@ class Demo1 extends React.Component {
     
       <Card.Title className="mb-3"><strong>Expenses Breakdown</strong></Card.Title>
       {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
+      
       <Graph data={this.state.data}/>
+      
       <br/>
       {/* <Button variant="primary">Request Payment</Button>
       <Button variant="primary">Split Expense</Button> */}
