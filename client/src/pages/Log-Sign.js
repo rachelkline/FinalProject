@@ -21,15 +21,16 @@ const LogSign = function(props) {
     username: null
   });
 
+  const [trips, setTrips] = useState([]);
+
   const getTrips= () => { 
-    var tripArr = []   
+    // var tripArr = []   
       API.getUserTrip({})
-      .then(results => {
-        // console.log(results.data)
-        tripArr.push(results.data)
-      });
-      
-      console.log(tripArr)
+      .then(results => 
+        // console.log(results.data),
+        setTrips(results.data)
+      )
+      .catch(err => console.log(err));
   }
 
   useEffect(() => {
@@ -48,7 +49,11 @@ const LogSign = function(props) {
         path="/"
         render={() => <Login updateUser={this.updateUser} />}
       /> */}
-      <Route path="/dashboard" render={() => <Dashboard />} />
+      <Route path="/dashboard" render={() => 
+      <Dashboard 
+        trips={trips}
+      />} 
+      />
       <Route path="/newtrip" render={() => <NewTrip />} />
     </Router>
   );

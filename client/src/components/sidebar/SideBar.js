@@ -13,8 +13,17 @@ import { Nav, Button } from "react-bootstrap";
 import classNames from "classnames";
 
 class SideBar extends React.Component {
+
+  
     
   render() {
+    // console.log(this.props.getTrips)
+    // const getTrips = this.props.getTrips()
+    // const name = getTrips
+    // console.log(name)
+    
+
+
     return (
     
        
@@ -34,12 +43,16 @@ class SideBar extends React.Component {
 
         <Nav className="flex-column pt-2 pl-3">
           {/* <p className="ml-3">Heading</p> */}
-
-          <Nav.Item className="active">
+        {this.props.trips.map(trip => {
+          return (
+            <Nav.Item  key={trip._id}>
             <Nav.Link href="/dashboard">
-              Trip Name
+              {trip.name}
             </Nav.Link>
           </Nav.Item>
+          );
+        })}
+          
 
 
           <Nav.Item>
