@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import API from "../utils/API"
 import { BrowserRouter as Router, Route, Link, useLocation } from "react-router-dom";
 import axios from 'axios'
@@ -66,47 +67,34 @@ class LogSign extends Component {
             })
           }
         })
-      }
 
-    // const location = useLocation();
-    render(){
+      }
+    });
+  }
+
+  // const location = useLocation();
+  render() {
     return (
-        <Router>
-   
+      <Router>
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
-        {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
-        }
+        {this.state.loggedIn && <p>Join the party, {this.state.username}!</p>}
         {/* Routes to different components */}
-        <Route
-          exact path="/"
-          component={LoginForm} />
+        {/* <Route
+          path="/"
+          render={() => <Login updateUser={this.updateUser} />}
+        /> */}
         <Route
           path="/login"
-          render={() =>
-            <LoginForm
-              updateUser={this.updateUser}
-            />}
+
+          render={() => <Login updateUser={this.updateUser} />}
         />
-        <Route
-          path="/signup"
-          render={() =>
-            <Signup/>}
-        />
-        <Route
-          path="/dashboard"
-          render={() =>
-            <Display trips={this.tripArr}/>}
-        />
-        <Route
-          path="/newtrip"
-          render={() =>
-            <NewTrip />}
-        />
+        <Route path="/signup" render={() => <Signup />} />
+        <Route path="/dashboard" render={() => <Dashboard />} />
+        <Route path="/newtrip" render={() => <NewTrip />} />
 
       </Router>
     );
-}
+  }
 }
 export default LogSign;

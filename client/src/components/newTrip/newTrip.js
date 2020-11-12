@@ -9,6 +9,7 @@ import mongoose from "mongoose";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Redirect } from "react-router-dom";
+
 class NewTrip extends React.Component {
   constructor() {
     super();
@@ -18,13 +19,23 @@ class NewTrip extends React.Component {
       isMobile: true,
       startDate: new Date(),
       endDate: new Date(),
+
       groupCode: "",
       tripName: "",
       tripLocation: "",
     };
+    
+    
+    this.onJoinSubmit = this.onJoinSubmit.bind(this);
+
+
+      tripName: "",
+      tripLocation: "",
+
+    };
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
-    this.onJoinSubmit = this.onJoinSubmit.bind(this);
+
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.previousWidth = -1;
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -36,12 +47,13 @@ class NewTrip extends React.Component {
     this.setState({
       [name]: value,
     });
+
     console.log(value)
   }
+ 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("handleSubmit")
-    if (this.state.tripName && this.state.tripLocation) {
+    if (this.state.tripName && this.state.tripLocation ) {
       API.saveTrips({
         name: this.state.tripName,
         location: this.state.tripLocation,
@@ -55,14 +67,14 @@ class NewTrip extends React.Component {
           })
         )
         .then(() => {
+
           console.log("success!");
+
+        
+
         })
         .catch((err) => console.log(err));
     }
-  }
-
-  handleJoinSubmit(e) {
-    e.preventDefault();
   }
 
   handleStartChange(date) {
@@ -78,6 +90,7 @@ class NewTrip extends React.Component {
     })
   }
 
+
   onJoinSubmit(e) {
     e.preventDefault();
     console.log("joinSubmit")
@@ -89,6 +102,7 @@ class NewTrip extends React.Component {
       })
     }
   }
+
   onFormSubmit(e) {
     e.preventDefault();
     console.log(this.state.startDate);
@@ -240,6 +254,7 @@ class NewTrip extends React.Component {
                           >
                             <Form.Control type="text" placeholder="Location" name="tripLocation" />
                           </Form.Group>
+
                           <Form.Group controlId="startDate">
                             <h6>Start Date</h6>
                             <form onSubmit={this.onFormSubmit}>
@@ -256,7 +271,9 @@ class NewTrip extends React.Component {
                             </form>
                           </Form.Group>
                           <Form.Group controlId="endDate">
+
                             <h6>End Date</h6>
+
                             <form onSubmit={this.onFormSubmit}>
                               <div className="form-group">
                                 <DatePicker
