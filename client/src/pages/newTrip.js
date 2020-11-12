@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import NewTrip from "../components/newTrip";
-function newTrip() {
+function newTrip(props) {
     // const location = useLocation();
     return (
         <>
    
-           <NewTrip/>
+           <NewTrip trips={props.trips}/>
         
           
 

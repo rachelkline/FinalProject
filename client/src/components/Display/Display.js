@@ -63,7 +63,7 @@ class Display extends React.Component {
 
         
         <Col>
-       <Main/>
+       <Main trip={this.props.trip}/>
        </Col>
 
        </Row>
