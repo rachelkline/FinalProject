@@ -49,17 +49,17 @@ const LoginForm = function({setComponentName = () => {}}) {
 
     return (
       <Container>
-        <Row>
-          <Col xs={12} sm={12} md={6} lg={6}>
+        <Row className="align-items-center mt-5">
+          <Col xs={12} sm={12} md={8} lg={8}>
             <div style={{ width: "auto", height: "auto" }}>
               <ResponsiveEmbed aspectRatio="16by9">
                 <YourSvg />
               </ResponsiveEmbed>
             </div>
           </Col>
-          <Col xs={12} sm={12} md={6} lg={6}>
+          <Col xs={12} sm={12} md={4} lg={4}>
             <h1>
-              <strong>Welcome to Travel Buddy</strong>
+              <strong>Welcome to Travel Buddy!</strong>
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group controlId="username">
