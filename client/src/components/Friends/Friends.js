@@ -6,11 +6,15 @@ import FriendLedger from "../FriendLedger/FriendLedger";
 // const {Collapse, UnmountClosed} = ReactCollapse;
 
 const friends = [
-    { name: 'Sally McSally', value: '1' },
-    { name: 'Bill Billerson', value: '2' },
-    { name: 'Frank Smith', value: '3' },
-    { name: 'Greg Smith', value: '4' },
+    { name: 'Expenses Ledger', value: '1' },
+
 ];
+const ledger = [
+    { name: 'Sally McSally', description: 'this is filler', amount:30 },
+    { name: 'Bill Billerson', description: 'this is filler', amount:30 },
+    { name: 'Frank Smith', description: 'this is filler', amount:30 },
+    { name: 'Greg Smith', description: 'this is filler', amount:30 },
+  ];
 
 class Nested extends React.PureComponent {
     constructor(props) {
@@ -39,7 +43,6 @@ class Nested extends React.PureComponent {
 
                                 <Card.Title  style={{ display: "flex" }}><span className="mt-1"><strong>{friend.name}</strong></span>
 
-                                    <Badge className="ml-2" variant="danger">You owe $35</Badge>{' '}
                                     <input
                                         friends={friends[i]}
                                         className="input pull-right"
@@ -75,7 +78,7 @@ class Nested extends React.PureComponent {
                                 isOpened={this.state['friend'+i]}>
                                 <div className="subCollapse">
                          
-                                    <FriendLedger />
+                                    <FriendLedger ledger={ledger}/>
                                 </div>
                             </Collapse>
                         </Card.Body>

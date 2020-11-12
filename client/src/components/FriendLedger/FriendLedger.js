@@ -6,19 +6,20 @@ import { Container, Row, Col, Card, Button, Form, Badge } from "react-bootstrap"
 function FriendLedger(props) {
     return (
 <>
-<Card bg="primary">
+{props.ledger.map((exp, idx) => (
+
+<Card bg="primary mb-3">
   <Card.Body>
-    <Card.Title><span><strong>Has Requested -$35</strong></span>{/* {props.title} */}</Card.Title>
-    <Row>
+  <Card.Title style={{ display: "flex" }}><span><strong>{exp.name}</strong></span>{ <span style={{ marginLeft: "auto" }} className="pull-right" size="sm" variant="secondary"><strong>${exp.amount}</strong></span>}
+</Card.Title>    <Row>
         <Col xs={12} md={12}>
-    <Card.Subtitle className="mb-2 text-muted">      Some quick example text to build on the card title and make up the bulk of
-      the card's content.{/* {props.location} */}</Card.Subtitle>
+    <Card.Subtitle className="mb-2 text-muted">{exp.description}{/* {props.location} */}</Card.Subtitle>
 </Col>
 
 </Row>
   </Card.Body>
 </Card>
-
+))}
 </>
     );
 }

@@ -5,3 +5,13 @@ background-color: #164D74 !important ;
 .navbar-light .navbar-brand {
     color: rgb(255, 255, 255);
 }
+.btn-outline-info:not(:disabled):not(.disabled).active{
+    color: #fff;
+    background-color: #b3e2cd;
+    border-color: #b3e2cd;
+}
+.btn-outline-info:hover{
+    color: #fff;
+    background-color: #b3e2cd;
+    border-color: #b3e2cd;
+}

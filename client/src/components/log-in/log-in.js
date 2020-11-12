@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import ResponsiveEmbed from "react-bootstrap/ResponsiveEmbed";
 import { ReactComponent as YourSvg } from "./login.svg";
+import "./style.css";
 
 import {AuthContext} from '../../contexts/auth-provider';
 

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { OverlayTrigger, Tooltip, Container, Row, Col, Card, Button } from "react-bootstrap";
 import Demo1 from "./demo1";
 import Demo2 from "./demo2";
 import Demo3 from "./demo3";
+
 import "./style.css";
 
 class Test extends React.Component {
@@ -12,7 +13,8 @@ class Test extends React.Component {
       name: "React",
       showHideDemo1: true,
       showHideDemo2: false,
-      showHideDemo3: false
+      showHideDemo3: false,
+      data: []
     };
     this.hideComponent = this.hideComponent.bind(this);
   }
@@ -37,14 +39,22 @@ class Test extends React.Component {
   }
 
   render() {
+    const { friendData } = this.state.data;
+
     const { showHideDemo1, showHideDemo2, showHideDemo3 } = this.state;
+
     return (
       <div>
         <Card className="shadow">
           <Card.Body>
+            
             {showHideDemo1 && <Demo1 />}
-            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="primary">Request</Button>}
-            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Split</Button>}
+
+
+            {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="primary">Add New</Button>}
+            
+            {/* {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Pay</Button>} */}
+
 
             {showHideDemo2 && <Demo2 />}
             {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="outline-primary">Cancel</Button>}

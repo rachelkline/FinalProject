@@ -25,17 +25,9 @@ class NewTrip extends React.Component {
       tripLocation: "",
     };
     
-    
     this.onJoinSubmit = this.onJoinSubmit.bind(this);
-
-
-      tripName: "",
-      tripLocation: "",
-
-    };
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
-
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.previousWidth = -1;
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -201,7 +193,10 @@ class NewTrip extends React.Component {
           <Col>
             <Container>
               {/* Stack the columns on mobile by making one full-width and the other half-width */}
-              <Row className="mt-3">
+
+
+              <Row className="mt-4">
+
                 <Col xs={12} sm={12} md={12} lg={6}>
                   <Card className="shadow">
                     <Card.Body>
