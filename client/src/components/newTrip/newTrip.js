@@ -195,7 +195,7 @@ class NewTrip extends React.Component {
       <div className="App wrapper">
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
         <Row>
-          <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
+          <SideBar toggle={this.toggle} isOpen={this.state.isOpen} trips={this.props.trips} />
           <Col>
             <Container>
               {/* Stack the columns on mobile by making one full-width and the other half-width */}

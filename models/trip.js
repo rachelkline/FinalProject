@@ -8,7 +8,7 @@ const tripSchema = new Schema({
 
     tripLength: {type: Array},
 
-    budget: { type: Number },
+    budget: [{ type: Number }],
     budgetLog: {type: String },
     itinerary: { type: String },
     date: { type: Date, default: Date.now }
