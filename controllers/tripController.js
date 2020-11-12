@@ -12,7 +12,19 @@ module.exports = {
 	},
 	findById: (req, res) => {
 		db.Trip
-			.findById(req.params.id)
+			.findById({_id: req.params.id})
+			.then(tripData => {
+				res.json(tripData)
+			})
+			.catch(err => console.log(err));
+	},
+	findByUser: (req, res) => {
+		user = `ObjectId("${req.user._id}")`
+		console.log(req.user._id)
+		db.Trip
+			.find({
+				users : req.user._id
+			})
 			.then(tripData => {
 				res.json(tripData)
 			})
@@ -30,12 +42,23 @@ module.exports = {
 			.catch(err => console.log(err));
 	},
 	update: (req, res) => {
+		
 		db.Trip
-			.findOneAndUpdate({ _id: req.params.id }, req.body)
+			.findOneAndUpdate({ _id: req.params.id }, {$push: {"users": req.user._id}})
 			.then(tripData => {
 				res.json(tripData)
 			})
 			.catch(err => console.log(err));
+	},
+	addEvent: (req, res) => {
+
+		db.Trip
+			.findOneAndUpdate({_id: req.params.id},
+				{$push: {"events": req.body}})
+				.then(tripData => {
+					res.json(tripData)
+				})
+				.catch(err => console.log(err));
 	},
 	remove: (req, res) => {
 		db.Trip

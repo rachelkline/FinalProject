@@ -5,11 +5,19 @@ export default {
   getTrips: function() {
     return axios.get("/api/trip");
   },
-  // Gets the trips with the given id
-  getTrips: function(id) {
+
+  // Gets the book with the given id
+  getTrip: function(id) {
     return axios.get("/api/trip/" + id);
   },
-  // Deletes the trip with the given id
+  getUserTrip: function() {
+    return axios.get("/api/trip");
+  },
+  addToTrip: function(id) {
+    return axios.put("/api/trip/" + id)
+  },
+  // Deletes the book with the given id
+
   deleteTrip: function(id) {
     return axios.delete("/api/trip/" + id);
   },
