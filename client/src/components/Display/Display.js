@@ -59,7 +59,7 @@ class Display extends React.Component {
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
         <Row>
           
-        <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
+        <SideBar trips={this.props.trips} toggle={this.toggle} isOpen={this.state.isOpen} />
 
         
         <Col>
