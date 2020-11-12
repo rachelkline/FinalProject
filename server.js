@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 app.use(
 	session({
 		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
-		// store: new MongoStore({ mongooseConnection: dbConnection }),
+		store: new MongoStore({ mongooseConnection: dbConnection }),
 		resave: false, //required
 		saveUninitialized: false, //required
 	})
@@ -36,7 +36,6 @@ app.use(
 // Passport
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
-app.use(dbConnection)
 
 // Routes
 app.use('/user', user)
