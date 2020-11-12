@@ -11,14 +11,7 @@ import SignUpForm from '../components/sign-up'
  function SignUp() {
     
     return (
-        <div className="container">
-            {/* <h1>Sign Up Form</h1> */}
-            <Route
-          path="/signup"
-          render={() =>
-            <SignUpForm />}
-        />
-        </div>
+        <SignUpForm />
         
     )
 }
