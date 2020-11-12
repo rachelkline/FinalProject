@@ -14,18 +14,13 @@ class Demo2 extends Component {
     return <div>
       
     
-    <Card.Title><strong>Request Payment</strong></Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Select a Friend:</Card.Subtitle>
+    <Card.Title><strong>Add Expense</strong></Card.Title>
+    {/* <Card.Subtitle className="mb-2 text-muted">Select a Friend:</Card.Subtitle> */}
 
 
  {/* {this.state.friends.map((item, index) => ( */}
 
-<FriendPill
 
-    // first={item.name.first}
-    // last={item.name.last}
-
-/>
 {/* ))} */}
     <Form>
   <Form.Group controlId="exampleForm.ControlInput1">
