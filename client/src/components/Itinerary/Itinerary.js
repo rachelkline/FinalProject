@@ -20,12 +20,9 @@ const dayss = [
     "Friday",
     "Saturday",
   ];
-  const radios = [
-    { name: 'Sally McSally', value: '1' },
-    { name: 'Bill Billerson', value: '2' },
-    { name: 'Frank Smith', value: '3' },
-    { name: 'Greg Smith', value: '4' },
-  ];
+
+
+  
 class Itinerary extends React.Component {
   constructor(props) {
     super(props);
@@ -33,15 +30,16 @@ class Itinerary extends React.Component {
       name: "React",
       showHideDemo1: true,
       showHideDemo2: false,
-        dateIndex:0
+        dateIndex: 0
     };
     this.hideComponent = this.hideComponent.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 handleClick(dateIndex) {
     console.log('test');
-    this.setState({ dateIndex: dateIndex - 1 });
-    console.log(dateIndex);
+    var dateZero = dateIndex - parseInt(this.props.trip.tripLength[0].date);
+    this.setState({ dateIndex: dateZero });
+    console.log(dateZero);
   }
   hideComponent(name) {
     console.log(name);
@@ -56,15 +54,21 @@ handleClick(dateIndex) {
         break;
     }
   }
+  
   render() {
+
+    const radios = this.props.trip.tripLength; 
+    console.log(radios);
+
+
     const { showHideDemo1, showHideDemo2 } = this.state;
     return (
       <div>
         <Card className="shadow">
         <Card.Body>
-          <Card.Title style={{ display: "flex" }}><strong>{radios[this.state.dateIndex].name}</strong>{showHideDemo1 && <Button style={{ marginLeft: "auto" }} onClick={() => this.hideComponent("showHideDemo1")} className="pull-right" size="sm" variant="secondary">+</Button>}
+          <Card.Title style={{ display: "flex" }}><strong>{radios[this.state.dateIndex].day}</strong>{showHideDemo1 && <Button style={{ marginLeft: "auto" }} onClick={() => this.hideComponent("showHideDemo1")} className="pull-right" size="sm" variant="secondary">+</Button>}
 </Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">November 2020</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted">{this.props.trip.tripLength[0].month}  {this.props.trip.tripLength[0].year}</Card.Subtitle>
       {/* {this.state.dates.map((item, index) => ( */}
 {/* {days.map((day, i) => ( */}
     <div>
