@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import ResponsiveEmbed from "react-bootstrap/ResponsiveEmbed";
 import { ReactComponent as YourSvg } from "./login.svg";
+import "./style.css";
 
 import axios from "axios";
 
@@ -70,68 +71,72 @@ class LoginForm extends Component {
       return (
         <>
           <Container>
-            <Row>
-              <Col xs={12} sm={12} md={6} lg={6}>
+            <Row className="align-items-center mt-5">
+              <Col xs={12} sm={12} md={8} lg={8}>
                 <div style={{ width: "auto", height: "auto" }}>
                   <ResponsiveEmbed aspectRatio="16by9">
                     <YourSvg />
                   </ResponsiveEmbed>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={6} lg={6}>
-                <h1>
-                  <strong>Welcome to Projectname</strong>
-                </h1>
-                <Form>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label htmlFor="username">
-                      <strong>Username</strong>
-                    </Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter username"
-                      className="form-input"
-                      size="lg"
-                      id="username"
-                      name="username"
-                      value={this.state.username}
-                      onChange={this.handleChange}
-                    />
-                  </Form.Group>
+              <Col xs={12} sm={12} md={4} lg={4}>
+                <div>
+                  <h1 >
+                    <strong>Welcome to Project!</strong>
+                  </h1>
+              
+                  <br/>
+                  <Form>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label htmlFor="username">
+                        <strong>Username</strong>
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter username"
+                        className="form-input"
+                        size="lg"
+                        id="username"
+                        name="username"
+                        value={this.state.username}
+                        onChange={this.handleChange}
+                      />
+                    </Form.Group>
 
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Label htmlFor="password">
-                      <strong>Password</strong>
-                    </Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Password"
-                      className="form-input"
+                    <Form.Group controlId="formBasicPassword">
+                      <Form.Label htmlFor="password">
+                        <strong>Password</strong>
+                      </Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        className="form-input"
+                        size="lg"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                      />
+                    </Form.Group>
+                    <br />
+                    <Button
+                      variant="primary"
+                      type="submit"
+                      className="mr-2"
+                      onClick={this.handleSubmit}
                       size="lg"
-                      name="password"
-                      value={this.state.password}
-                      onChange={this.handleChange}
-                    />
-                  </Form.Group>
-                  <br />
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    className="mr-2"
-                    onClick={this.handleSubmit}
-                    size="lg"
-                  >
-                    <strong>Login</strong>
-                  </Button>
-                  <Button variant="outline-primary" size="lg" type="submit">
-                    <Link
-                      to="/signup"
-                      className={useLocation.pathname === "/signup"}
                     >
-                      Sign up
+                      <strong>Login</strong>
+                    </Button>
+                    <Button variant="outline-primary" size="lg" type="submit">
+                      <Link
+                        to="/signup"
+                        className={useLocation.pathname === "/signup"}
+                      >
+                        Sign up
                     </Link>
-                  </Button>
-                </Form>
+                    </Button>
+                  </Form>
+                </div>
               </Col>
             </Row>
           </Container>

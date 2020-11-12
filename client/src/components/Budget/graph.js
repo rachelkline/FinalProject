@@ -1,6 +1,13 @@
 import * as React from 'react';
 import { OverlayTrigger, Col, Card, Button, Overlay } from "react-bootstrap";
 import { Tooltip } from '@devexpress/dx-react-chart-bootstrap4';
+import { Palette } from '@devexpress/dx-react-chart';
+import {
+
+  schemePastel1,
+  schemePastel2,
+
+} from 'd3-scale-chromatic';
 
 import {
   Chart,
@@ -62,7 +69,7 @@ export default class Graph extends React.PureComponent {
     </Card.Subtitle>
     <Card.Subtitle className="mb-2 text-muted">
       {' '}
-      {selection.length ? "To split them evenly, each other member would pay $"+ Math.round(data[selection[0].point].budget/(data.length - 1)) : undefined}
+      {selection.length ? "To split them evenly, each other member would pay $"+ Math.round(data[selection[0].point].budget/(data.length)) : undefined}
     </Card.Subtitle>
       <div className="card">
  
@@ -70,10 +77,10 @@ export default class Graph extends React.PureComponent {
         className="tessst"
           data={chartData}
         >
-          
+          <Palette scheme={schemePastel2} />
           <ArgumentAxis />
 
-          <ValueAxis max={20} />
+          <ValueAxis />
           
           
           <BarSeries

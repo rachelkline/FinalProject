@@ -66,18 +66,19 @@ class SignUpForm extends Component {
       return (
         <>
           <Container>
-            <Row>
-              <Col xs={12} sm={12} md={6} lg={6}>
+            <Row className="align-items-center mt-5">
+              <Col xs={12} sm={12} md={8} lg={8}>
                 <div style={{ width: "auto", height: "auto" }}>
                   <ResponsiveEmbed aspectRatio="16by9">
                     <YourSvg />
                   </ResponsiveEmbed>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={6} lg={6}>
+              <Col xs={12} sm={12} md={4} lg={4}>
                 <h2>
                   <strong>Sign Up</strong>
                 </h2>
+                <br/>
                 <Form>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Label htmlFor="username">
