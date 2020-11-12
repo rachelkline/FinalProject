@@ -15,3 +15,9 @@ background-color: #164D74 !important ;
     background-color: #b3e2cd;
     border-color: #b3e2cd;
 }
+.colorWhite{
+    color: rgb(255, 255, 255);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+}
