@@ -5,7 +5,7 @@ const tripRoutes = require("./trip");
 // All routes go here
 router.use("/api", tripRoutes);
 
-router.use('*', (req, res) => {
+router.use((req, res) => {
 	res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 

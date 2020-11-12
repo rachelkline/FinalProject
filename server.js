@@ -5,14 +5,17 @@ const morgan = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const app = express()
-const PORT = 3001
+const PORT = 3001;
 // Route requires
+
 
 
 const dbConnection = require('./database') 
 const user = require('./routes/user')
 const routes = require('./routes')
 const passport = require('./passport');
+
+
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -37,11 +40,16 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("client/build"));
+  }
+
 // Routes
 app.use('/user', user)
 app.use(routes)
 
 // Starting Server 
-app.listen(process.env.PORT + 1, () => {
+app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 })
