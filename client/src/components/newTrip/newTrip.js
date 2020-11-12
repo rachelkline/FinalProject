@@ -24,14 +24,14 @@ class NewTrip extends React.Component {
       tripName: "",
       tripLocation: "",
     };
-    
+
     this.onJoinSubmit = this.onJoinSubmit.bind(this);
     this.handleStartChange = this.handleStartChange.bind(this);
     this.handleEndChange = this.handleEndChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.previousWidth = -1;
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   handleInputChange(e) {
     let value = e.target.value;
@@ -40,12 +40,12 @@ class NewTrip extends React.Component {
       [name]: value,
     });
 
-    console.log(value)
+    console.log(value);
   }
- 
+
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.tripName && this.state.tripLocation ) {
+    if (this.state.tripName && this.state.tripLocation) {
       API.saveTrips({
         name: this.state.tripName,
         location: this.state.tripLocation,
@@ -54,16 +54,12 @@ class NewTrip extends React.Component {
         .then(() =>
           this.setState({
             tripName: "",
-            tripLocation: ""
+            tripLocation: "",
             //redirect to dashboard
           })
         )
         .then(() => {
-
           console.log("success!");
-
-        
-
         })
         .catch((err) => console.log(err));
     }
@@ -72,26 +68,25 @@ class NewTrip extends React.Component {
   handleStartChange(date) {
     console.log(date);
     this.setState({
-      startDate: date
-    })
+      startDate: date,
+    });
   }
   handleEndChange(date) {
     console.log(date);
     this.setState({
-      endDate: date
-    })
+      endDate: date,
+    });
   }
-
 
   onJoinSubmit(e) {
     e.preventDefault();
-    console.log("joinSubmit")
+    console.log("joinSubmit");
     if (this.state.groupCode) {
       var id = this.state.groupCode;
-      console.log(this.state.groupCode)
-      API.addToTrip(id).then(results => {
-        console.log(results)
-      })
+      console.log(this.state.groupCode);
+      API.addToTrip(id).then((results) => {
+        console.log(results);
+      });
     }
   }
 
@@ -113,43 +108,56 @@ class NewTrip extends React.Component {
     this.previousWidth = width;
   }
 
-
   pickDates() {
     var i;
     var startDate = this.state.startDate;
     var endDate = this.state.endDate;
 
     const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ];
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
     Date.prototype.addDays = function (days) {
-      var dat = new Date(this.valueOf())
+      var dat = new Date(this.valueOf());
       dat.setDate(dat.getDate() + days);
       return dat;
-    }
+    };
     function getDates(startDate, endDate) {
       var dateArray = new Array();
       console.log(dateArray);
       var currentDate = startDate;
       while (currentDate <= endDate) {
         var currentDate2 = currentDate.getDate();
-        var currentDate3 = months[currentDate.getMonth()]
-        var currentDate4 = currentDate.getFullYear()
-        var currentDate5 = days[currentDate.getDay()]
-        var events = []
-        dateArray.push({ date: currentDate2, month: currentDate3, year: currentDate4, day: currentDate5, events: events})
+        var currentDate3 = months[currentDate.getMonth()];
+        var currentDate4 = currentDate.getFullYear();
+        var currentDate5 = days[currentDate.getDay()];
+        var events = [];
+        dateArray.push({
+          date: currentDate2,
+          month: currentDate3,
+          year: currentDate4,
+          day: currentDate5,
+          events: events,
+        });
         //  dateArray.push({month: currentDate3})
         //  dateArray.push(currentDate2)
         currentDate = currentDate.addDays(1);
@@ -157,14 +165,12 @@ class NewTrip extends React.Component {
       return dateArray;
     }
     const dateArray = getDates(new Date(startDate), new Date(endDate));
-    for (i = 0; i < dateArray.length; i++) {
-    }
+    for (i = 0; i < dateArray.length; i++) {}
     return dateArray;
   }
   /**
    * Add event listener
    */
-
 
   componentDidMount() {
     this.updateWidth();
@@ -194,9 +200,7 @@ class NewTrip extends React.Component {
             <Container>
               {/* Stack the columns on mobile by making one full-width and the other half-width */}
 
-
               <Row className="mt-4">
-
                 <Col xs={12} sm={12} md={12} lg={6}>
                   <Card className="shadow">
                     <Card.Body>
@@ -206,18 +210,25 @@ class NewTrip extends React.Component {
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
                           If a trip has already been created, enter its unique
-                        trip code{" "}
+                          trip code{" "}
                         </Card.Subtitle>
                         <Form onSubmit={this.onJoinSubmit}>
-                          <Form.Group 
+                          <Form.Group
                             id="groupCode"
                             onChange={this.handleInputChange}
-                            value={this.state.groupCode}>
-                            <Form.Control type="text" placeholder="Trip Code" name="groupCode" />
+                            value={this.state.groupCode}
+                          >
+                            <Form.Control
+                              type="text"
+                              placeholder="Trip Code"
+                              name="groupCode"
+                            />
                           </Form.Group>
-                          <Button variant="primary" type="submit">Join Trip</Button>{" "}
+                          <Button variant="primary" type="submit">
+                            Join Trip
+                          </Button>{" "}
                         </Form>
-                        
+
                         {/* <Button variant="primary">Request Payment</Button>
       <Button variant="primary">Split Expense</Button> */}
                       </div>
@@ -233,23 +244,30 @@ class NewTrip extends React.Component {
                         </Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">
                           placeholder text
-                      </Card.Subtitle>
+                        </Card.Subtitle>
                         <Form onSubmit={this.handleSubmit}>
                           <Form.Group
                             id="tripName"
                             onChange={this.handleInputChange}
                             value={this.state.tripName}
                           >
-                            <Form.Control type="text" placeholder="Event Name" name="tripName" />
+                            <Form.Control
+                              type="text"
+                              placeholder="Event Name"
+                              name="tripName"
+                            />
                           </Form.Group>
                           <Form.Group
                             id="tripLocation"
                             onChange={this.handleInputChange}
                             value={this.state.tripLocation}
                           >
-                            <Form.Control type="text" placeholder="Location" name="tripLocation" />
+                            <Form.Control
+                              type="text"
+                              placeholder="Location"
+                              name="tripLocation"
+                            />
                           </Form.Group>
-
                           <Form.Group controlId="startDate">
                             <h6>Start Date</h6>
                             <form onSubmit={this.onFormSubmit}>
@@ -266,7 +284,6 @@ class NewTrip extends React.Component {
                             </form>
                           </Form.Group>
                           <Form.Group controlId="endDate">
-
                             <h6>End Date</h6>
 
                             <form onSubmit={this.onFormSubmit}>
@@ -282,7 +299,9 @@ class NewTrip extends React.Component {
                               </div>
                             </form>
                           </Form.Group>
-                          <Button variant="primary" type="submit" >Create Trip</Button>{" "}
+                          <Button variant="primary" type="submit">
+                            Create Trip
+                          </Button>{" "}
                         </Form>
                         {/* <Button variant="primary">Request Payment</Button>
       <Button variant="primary">Split Expense</Button> */}
