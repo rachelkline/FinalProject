@@ -3,7 +3,7 @@ import { Route, Link, useLocation } from "react-router-dom";
 import LoginForm from "../components/log-in"
 
 
-function LogIn() {
+function LogIn(props) {
     // const location = useLocation();
     return (
         <div className="container">
@@ -11,7 +11,7 @@ function LogIn() {
           path="/login"
           render={() =>
             <LoginForm
-            //   updateUser={this.updateUser}
+              updateUser={props.updateUser}
             />}
         />
         </div>

@@ -50,9 +50,11 @@ class Test extends React.Component {
             
             {showHideDemo1 && <Demo1 />}
 
+
             {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="primary">Add New</Button>}
             
             {/* {showHideDemo1 && <Button onClick={() => this.hideComponent("showHideDemo3")} variant="primary">Pay</Button>} */}
+
 
             {showHideDemo2 && <Demo2 />}
             {showHideDemo2 && <Button onClick={() => this.hideComponent("showHideDemo1")} className="mr-2" variant="outline-primary">Cancel</Button>}

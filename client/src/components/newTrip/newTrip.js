@@ -9,14 +9,7 @@ import mongoose from "mongoose";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-const Example = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  return (
-    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-  );
-};
-
-
+import { Redirect } from "react-router-dom";
 
 
 class NewTrip extends React.Component {
@@ -29,13 +22,14 @@ class NewTrip extends React.Component {
       isMobile: true,
 
       startDate: new Date(),
+      endDate: new Date(),
 
       tripName: "",
       tripLocation: "",
-      tripDates: "",
 
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleStartChange = this.handleStartChange.bind(this);
+    this.handleEndChange = this.handleEndChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.previousWidth = -1;
 
@@ -49,16 +43,16 @@ class NewTrip extends React.Component {
     this.setState({
       [name]: value,
     });
-    console.log(e.target)
-    console.log(this.state)
+    
   }
 
-  handleSubmit() {
-    if (this.state.tripName && this.state.tripLocation && this.state.tripDates) {
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.tripName && this.state.tripLocation ) {
       API.saveTrips({
         name: this.state.tripName,
         location: this.state.tripLocation,
-        tripLength: this.state.tripDates,
+        tripLength: this.pickDates(),
       })
         .then(() =>
           this.setState({
@@ -67,18 +61,28 @@ class NewTrip extends React.Component {
             tripDates: "",
           })
         )
-        .then(() => console.log("success!"))
+        .then(() => {
+          console.log("success!"); 
+        })
         .catch((err) => console.log(err));
     }
   }
-  handleChange(date) {
+  handleStartChange(date) {
+    console.log(date);
     this.setState({
       startDate: date
     })
   }
+  handleEndChange(date) {
+    console.log(date);
+    this.setState({
+      endDate: date
+    })
+  }
   onFormSubmit(e) {
     e.preventDefault();
-    console.log(this.state.startDate)
+    console.log(this.state.startDate);
+    console.log(this.state.endDate);
   }
 
   updateWidth() {
@@ -97,30 +101,30 @@ class NewTrip extends React.Component {
     this.previousWidth = width;
   }
 
-  // pickDates(num) {
-  // var i;
-  //   Date.prototype.addDays = function (days) {
-  //     var dat = new Date(this.valueOf());
-  //     dat.setDate(dat.getDate() + days);
-  //     return dat;
-  //   };
-  //   function getDates(startDate, stopDate) {
-  //     var dateArray = new Array();
-  //     var currentDate = startDate;
-  //     while (currentDate <= stopDate) {
-  //       dateArray.push(currentDate);
-  //       currentDate = currentDate.addDays(1);
-  //     }
-  //     return dateArray;
-  //   }
-  //   var dateArray = getDates(new Date(), new Date().addDays(num));
-  //   for (i = 0; i < dateArray.length; i++) {
-  //     console.log(dateArray[i]);
-  //     this.setState({
-  //       tripDates: dateArray
-  //     })
-  //   }
-  // }
+  pickDates() {
+    var i;
+    var startDate = this.state.startDate;
+    var endDate = this.state.endDate;
+    Date.prototype.addDays = function (days) {
+      var dat = new Date(this.valueOf());
+      dat.setDate(dat.getDate() + days);
+      return dat;
+    };
+    function getDates(startDate, endDate) {
+      var dateArray = new Array();
+      var currentDate = startDate;
+      while (currentDate <= endDate) {
+        dateArray.push(currentDate);
+        currentDate = currentDate.addDays(1);
+      }
+      return dateArray;
+    }
+    var dateArray = getDates(new Date(startDate), new Date(endDate));
+    for (i = 0; i < dateArray.length; i++) {
+      console.log(dateArray[i]);
+    }
+    return dateArray;
+  }
 
   /**
    * Add event listener
@@ -204,32 +208,35 @@ class NewTrip extends React.Component {
                             <Form.Control type="text" placeholder="Location" name="tripLocation" />
                           </Form.Group>
 
-                          <Form.Group controlId="exampleForm.ControlInput1">
+                          <Form.Group controlId="startDate">
+                            <h6>Start Date</h6>
                             <form onSubmit={this.onFormSubmit}>
                               <div className="form-group">
                                 <DatePicker
                                   className="form-control"
                                   selected={this.state.startDate}
-                                  onChange={this.handleChange}
+                                  onChange={this.handleStartChange}
                                   name="startDate"
                                   dateFormat="MM/dd/yyyy"
                                 />
-                                <button className="btn btn-dark">Show Date</button>
+                                {/* <button className="btn btn-dark">Show Date</button> */}
                               </div>
                             </form>
                           </Form.Group>
-                          <Form.Group
-                            id="tripDates"
-
-                            onChange={this.handleInputChange}
-                            value={this.state.tripDates}
-                          >
-
-                            <Form.Control
-                              type="text"
-                              placeholder="Placeholder for date picking method"
-                              name="tripDates"
-                            />
+                          <Form.Group controlId="endDate">
+                          <h6>End Date</h6>
+                            <form onSubmit={this.onFormSubmit}>
+                              <div className="form-group">
+                                <DatePicker
+                                  className="form-control"
+                                  selected={this.state.endDate}
+                                  onChange={this.handleEndChange}
+                                  name="endDate"
+                                  dateFormat="MM/dd/yyyy"
+                                />
+                                {/* <button className="btn btn-dark">Show Date</button> */}
+                              </div>
+                            </form>
                           </Form.Group>
                           <Button variant="primary" type="submit" >Create Trip</Button>{" "}
                         </Form>
