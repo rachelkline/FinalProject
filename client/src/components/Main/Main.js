@@ -48,12 +48,12 @@ class Main extends React.Component {
 
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Card className="shadow ">
-                  <Card.Body>Location Goes Here. </Card.Body>
+                  <Card.Body>Location: {this.props.trip.location} </Card.Body>
                 </Card>
               </Col>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Card className="shadow mt-3">
-                  <Card.Body>Code: 0G6TY54</Card.Body>
+                  <Card.Body>Trip Code: {this.props.trip._id}</Card.Body>
 
                 </Card>
               </Col>

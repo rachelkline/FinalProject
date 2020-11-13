@@ -44,7 +44,6 @@ const LogSign = function(props) {
     <Router>
       <Navbar updateUser={updateUser} loggedIn={!!username} />
       {/* greet user if logged in: */}
-      {username && <p>Join the party, {username}!</p>}
       <Route path="/trip/:id" render={() => <Dashboard trips={trips}/>}/>
       {/* <Route path="/dashboard" render={() => 
       <Dashboard 

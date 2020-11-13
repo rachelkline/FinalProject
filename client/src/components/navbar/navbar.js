@@ -29,13 +29,13 @@ export default function(props) {
 
   return (
     <>
-              <Link
+              {/* <Link
                 to="/login"
                 className="btn btn-link text-secondary"
                 onClick={logout}
               >
                 <span className="text-secondary">logout</span>
-              </Link>
+              </Link> */}
 
       </>
     )
