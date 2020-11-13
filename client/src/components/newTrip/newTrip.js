@@ -87,7 +87,9 @@ class NewTrip extends React.Component {
       console.log(this.state.groupCode);
       API.addToTrip(id).then((results) => {
         console.log(results);
-      });
+      }).then(() =>
+        window.location.reload()
+      )
     }
   }
 
