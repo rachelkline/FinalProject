@@ -60,6 +60,7 @@ class NewTrip extends React.Component {
         )
         .then(() => {
           console.log("success!");
+          window.location.reload();
         })
         .catch((err) => console.log(err));
     }
