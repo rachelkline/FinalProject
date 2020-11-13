@@ -45,14 +45,16 @@ class Main extends React.Component {
 
           <Col xs={12} sm={12} md={12} lg={6}>
             <Row>
-              <Col xs={12} sm={12} md={12} lg={6}>
-                <Card className="shadow">
-                  <Card.Body>{this.props.trip.location} </Card.Body>
+
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <Card className="shadow mb-3">
+                  <Card.Body>Location: {this.props.trip.location} </Card.Body>
                 </Card>
               </Col>
-              <Col xs={12} sm={12} md={12} lg={6}>
-                <Card className="shadow">
-                  <Card.Body>Code: {this.props.trip._id}</Card.Body>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <Card className="shadow mt-3">
+                  <Card.Body>Trip Code: {this.props.trip._id}</Card.Body>
+
                 </Card>
               </Col>
             </Row>

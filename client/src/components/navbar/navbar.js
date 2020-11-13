@@ -28,26 +28,16 @@ export default function(props) {
   }
 
   return (
-      <div>
-        <header className="navbar App-header" id="nav-container">
-          <div className="col-4">
-            <section className="navbar-section">
-              <Link
+    <>
+              {/* <Link
                 to="/login"
                 className="btn btn-link text-secondary"
                 onClick={logout}
               >
                 <span className="text-secondary">logout</span>
-              </Link>
-            </section>
-          </div>
-          <div className="col-4 col-mr-auto">
-            <div id="top-filler"></div>
-            {/* <img src={logo} className="App-logo" alt="logo" /> */}
-            <h1 className="App-title"></h1>
-          </div>
-        </header>
-      </div>
+              </Link> */}
+
+      </>
     )
     // ) :
     // (<Redirect to={{ pathname: '/login' }} />);
