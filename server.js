@@ -14,6 +14,8 @@ const user = require('./routes/user')
 const routes = require('./routes')
 const passport = require('./passport');
 
+
+
 // MIDDLEWARE
 app.use(morgan('dev'))
 app.use(
@@ -27,7 +29,7 @@ app.use(bodyParser.json())
 app.use(
 	session({
 		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
-		// store: new MongoStore({ mongooseConnection: dbConnection }),
+		store: new MongoStore({ mongooseConnection: dbConnection }),
 		resave: false, //required
 		saveUninitialized: false, //required
 	})
