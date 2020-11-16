@@ -46,7 +46,7 @@ class Main extends React.Component {
           <Col xs={12} sm={12} md={12} lg={6}>
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>
-                <Card className="shadow mb-3">
+                <Card className="shadow">
                   <Card.Body>Location: {this.props.trip.location} </Card.Body>
                 </Card>
               </Col>
