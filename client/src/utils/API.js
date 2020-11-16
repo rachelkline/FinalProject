@@ -16,6 +16,9 @@ export default {
   addToTrip: function(id) {
     return axios.put("/api/trip/" + id)
   },
+  addEvents: function(id, dateIndex){
+    return axios.put("/api/trip/" + id, dateIndex)
+  },
   // Deletes the book with the given id
 
   deleteTrip: function(id) {

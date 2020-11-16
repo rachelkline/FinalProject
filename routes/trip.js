@@ -11,7 +11,7 @@ router.route("/trip")
 // /api/posts/:id routes only
 router.route("/trip/:id")
 	.get(tripController.findById)
-	
+	.put(tripController.addEvent)
 	.put(tripController.update)
 	.delete(tripController.remove)
 

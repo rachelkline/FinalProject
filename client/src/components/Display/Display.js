@@ -13,7 +13,7 @@ class Display extends React.Component {
     // Moblie first
     this.state = {
       isOpen: false,
-      isMobile: true
+      isMobile: true,
     };
 
     this.previousWidth = -1;
@@ -27,7 +27,7 @@ class Display extends React.Component {
 
     if (isMobile !== wasMobile) {
       this.setState({
-        isOpen: !isMobile
+        isOpen: !isMobile,
       });
     }
 
@@ -59,14 +59,16 @@ class Display extends React.Component {
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
         <Row>
           
-        <SideBar trips={this.props.trips} toggle={this.toggle} isOpen={this.state.isOpen} />
+          <SideBar
+            trips={this.props.trips}
+            toggle={this.toggle}
+            isOpen={this.state.isOpen}
+          />
 
-        
-        <Col>
-       <Main trip={this.props.trip}/>
-       </Col>
-
-       </Row>
+          <Col>
+            <Main trip={this.props.trip} />
+          </Col>
+        </Row>
       </div>
     );
   }
