@@ -100,7 +100,7 @@ class Itinerary extends React.Component {
               />
             )}
             {/* ))} */}
-            {showHideDemo2 && <AddEvent />}
+            {showHideDemo2 && <AddEvent hideComponent = {this.hideComponent} dateIndex={this.state.dateIndex}/>}
             {showHideDemo2 && (
               <Button
                 className="mr-2"
@@ -110,14 +110,14 @@ class Itinerary extends React.Component {
                 Cancel
               </Button>
             )}
-            {showHideDemo2 && (
+            {/* {showHideDemo2 && (
               <Button
                 onClick={() => this.hideComponent("showHideDemo1")}
                 variant="primary"
               >
                 Confirm
               </Button>
-            )}
+            )} */}
           </Card.Body>
         </Card>
       </div>

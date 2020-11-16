@@ -53,7 +53,7 @@ module.exports = {
 	addEvent: (req, res) => {
 
 		db.Trip
-			.findOneAndUpdate({_id: req.params.id},
+			.findOneAndUpdate({_id: req.params.id, tripLength: dateIndex},
 				{$push: {"events": req.body}})
 				.then(tripData => {
 					res.json(tripData)
