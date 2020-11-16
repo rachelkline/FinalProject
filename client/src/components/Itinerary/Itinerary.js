@@ -93,7 +93,7 @@ class Itinerary extends React.Component {
             <hr />
             {/* {this.state.dates.map((item, index) => ( */}
             {showHideDemo1 && (
-              <Events
+              <Events onClick={() => this.hideComponent("showHideDemo1")}
               // title={item.title}
               // location={item.location}
               // time={item.time}
@@ -101,7 +101,7 @@ class Itinerary extends React.Component {
             )}
             {/* ))} */}
             {showHideDemo2 && <AddEvent hideComponent = {this.hideComponent} dateIndex={this.state.dateIndex}/>}
-            {showHideDemo2 && (
+            {/* {showHideDemo2 && (
               <Button
                 className="mr-2"
                 onClick={() => this.hideComponent("showHideDemo1")}
@@ -109,7 +109,7 @@ class Itinerary extends React.Component {
               >
                 Cancel
               </Button>
-            )}
+            )} */}
             {/* {showHideDemo2 && (
               <Button
                 onClick={() => this.hideComponent("showHideDemo1")}

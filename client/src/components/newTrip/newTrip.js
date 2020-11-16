@@ -205,7 +205,7 @@ class NewTrip extends React.Component {
 
               <Row className="mt-4">
                 <Col xs={12} sm={12} md={12} lg={6}>
-                  <Card className="shadow">
+                  <Card className="shadow mb-3">
                     <Card.Body>
                       <div>
                         <Card.Title>
@@ -271,8 +271,10 @@ class NewTrip extends React.Component {
                               name="tripLocation"
                             />
                           </Form.Group>
+                          <Row>
+                            <Col>
                           <Form.Group controlId="startDate">
-                            <h6>Start Date</h6>
+                          <h6 className="text-muted">Start Date</h6>
                             <form onSubmit={this.onFormSubmit}>
                               <div className="form-group">
                                 <DatePicker
@@ -286,8 +288,10 @@ class NewTrip extends React.Component {
                               </div>
                             </form>
                           </Form.Group>
+                          </Col>
+                          <Col>
                           <Form.Group controlId="endDate">
-                            <h6>End Date</h6>
+                            <h6 className="text-muted">End Date</h6>
 
                             <form onSubmit={this.onFormSubmit}>
                               <div className="form-group">
@@ -302,6 +306,8 @@ class NewTrip extends React.Component {
                               </div>
                             </form>
                           </Form.Group>
+                          </Col>
+                          </Row>
                           <Button variant="primary" type="submit">
                             Create Trip
                           </Button>{" "}

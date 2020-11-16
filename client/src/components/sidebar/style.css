@@ -1,0 +1,12 @@
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;               
+    background-color:#e4e2ee;
+    height: 1px;
+  }
+  .centered{
+    text-align: center;
+color: rgb(46, 46, 46);
+  }
