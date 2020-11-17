@@ -93,14 +93,14 @@ class Itinerary extends React.Component {
             <hr />
             {/* {this.state.dates.map((item, index) => ( */}
             {showHideDemo1 && (
-              <Events
+              <Events trip={this.props.trip} dateIndex={this.state.dateIndex}
               // title={item.title}
               // location={item.location}
               // time={item.time}
               />
             )}
             {/* ))} */}
-            {showHideDemo2 && <AddEvent hideComponent = {this.hideComponent} dateIndex={this.state.dateIndex}/>}
+            {showHideDemo2 && <AddEvent trip={this.props.trip} hideComponent = {this.hideComponent} dateIndex={this.state.dateIndex} />}
             {showHideDemo2 && (
               <Button
                 className="mr-2"

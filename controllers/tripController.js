@@ -51,14 +51,10 @@ module.exports = {
 			.catch(err => console.log(err));
 	},
 	addEvent: (req, res) => {
-
-		db.Trip
-			.findOneAndUpdate({_id: req.params.id, tripLength: dateIndex},
-				{$push: {"events": req.body}})
-				.then(tripData => {
-					res.json(tripData)
-				})
-				.catch(err => console.log(err));
+		const tripPath = `tripLength.${req.body.dateIndex}.events`;
+		db.Trip.findByIdAndUpdate({_id: req.params.id}, {$push: {[tripPath]: req.body.eventData}} )
+			.then(tripJaunt => console.log(tripJaunt))
+			.catch(err => console.log(err));
 	},
 	remove: (req, res) => {
 		db.Trip

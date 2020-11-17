@@ -9,6 +9,7 @@ import {
   Badge,
 } from "react-bootstrap";
 import FriendPill from "../friendPill/friendPill";
+import API from "../../utils/API";
 
 class AddEvent extends Component {
   constructor(props) {
@@ -35,29 +36,10 @@ class AddEvent extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state)
+    console.log(this.props);
     this.props.hideComponent("showHideDemo1");
-    if (this.state.eventName && this.state.location && this.state.time) {
-      // var id = this.req.params.id;
-      // console.log(id);
-      // API.addEvent({
-      //   dateIndex: this.props.state.dateIndex,
-      //   eventName: this.state.eventName,
-      //   location: this.state.location,
-      //   time: this.state.time
-      // })
-      //   .then(() =>
-      //     this.setState({
-      //       tripName: "",
-      //       tripLocation: "",
-      //       //redirect to dashboard
-      //     })
-      //   )
-      //   .then(() => {
-      //     console.log("success!");
-      //     window.location.reload();
-      //   })
-      //   .catch((err) => console.log(err));
-    }
+    API.addEvent(this.props.trip._id, this.props.dateIndex,this.state);
+    window.location.reload();
   }
 
   render() {
