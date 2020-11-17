@@ -113,15 +113,15 @@
   }
   
   .nav-item:hover {
-    background: #ffffff;
+    background: none;
     color: rgb(39, 39, 39);
     transition: .05s;
     font-weight: bold;
   }
   
-  .nav-item .svg-inline--fa {
+  /* .nav-item .svg-inline--fa {
     color: inherit;
-  }
+  } */
   
   li a.dropdown-toggle::after {
     display: inline-flex;
@@ -178,3 +178,9 @@
     }
     
   }
+  .width {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+}

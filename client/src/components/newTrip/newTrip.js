@@ -197,7 +197,7 @@ class NewTrip extends React.Component {
     return (
       <div className="App wrapper">
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
-        <Row>
+        <Row className="width">
           <SideBar toggle={this.toggle} isOpen={this.state.isOpen} trips={this.props.trips} />
           <Col>
             <Container>

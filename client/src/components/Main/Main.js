@@ -23,7 +23,7 @@ class Main extends React.Component {
     const codeIcon = <FontAwesomeIcon icon={faCode} />
     return (
       // <Container fluid className="p-3">
-      <Container className="p-3">
+      <Container fluid className="p-3">
         {/* Stack the columns on mobile by making one full-width and the other half-width */}
         <Row className="mt-4">
           <Col xs={12} sm={12} md={12} lg={6}>

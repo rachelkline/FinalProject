@@ -25,6 +25,7 @@ function Events(props) {
   if(eventArr.length){
     var tripEventDisplay = eventArr.map(tripData => {
       return (
+        <Card bg="primary"className="mb-3">
         <Card.Body>
           <Card.Title><span><strong>{tripData.eventName}</strong></span></Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{tripData.location}</Card.Subtitle>
@@ -33,15 +34,14 @@ function Events(props) {
           <span> {tripData.time} </span>
           </Card.Text>
         </Card.Body>
+        </Card>
       )
     }) 
   } 
   
   return (
     <>
-      <Card bg="primary">
         {tripEventDisplay}
-      </Card>
     </>
   );
 }

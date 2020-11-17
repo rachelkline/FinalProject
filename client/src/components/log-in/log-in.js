@@ -93,7 +93,10 @@ const LoginForm = function({setComponentName = () => {}}) {
                 />
               </Form.Group>
               <br />
+              <Row>
+                <Col>
               <Button
+              style={{width: "100%"}}
                 variant="primary"
                 type="submit"
                 className="mr-2"
@@ -101,9 +104,13 @@ const LoginForm = function({setComponentName = () => {}}) {
               >
                 <strong>Login</strong>
               </Button>
-              <Button variant="outline-primary" size="lg" onClick={() => {setComponentName('signup')}}>
+              </Col>
+              <Col>
+              <Button variant="outline-primary" size="lg" style={{width: "100%"}} onClick={() => {setComponentName('signup')}}>
                 Sign up
               </Button>
+              </Col>
+              </Row>
             </form>
           </Col>
         </Row>

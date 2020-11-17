@@ -21,10 +21,10 @@ import { Animation } from '@devexpress/dx-react-chart';
 import { EventTracker, HoverState, SelectionState } from '@devexpress/dx-react-chart';
 
 const data = [
-    { name: 'Sally', value: '1', budget: 200 },
-    { name: 'Bill', value: '2', budget: 300 },
-    { name: 'Frank', value: '3', budget: 400 },
-    { name: 'Greg', value: '4', budget: 150 },
+    { name: 'Andrew', value: '1', budget: 40 },
+    { name: 'Rachel', value: '2', budget: 24 },
+    { name: 'Ryan', value: '3', budget: 45 },
+    { name: 'Francesca', value: '4', budget: 30 },
   ];
   const compare = (
     { series, point }, { series: targetSeries, point: targetPoint },
