@@ -9,6 +9,7 @@ import {
   Badge,
 } from "react-bootstrap";
 import FriendPill from "../friendPill/friendPill";
+import API from "../../utils/API";
 
 class AddEvent extends Component {
   constructor(props) {
@@ -35,10 +36,12 @@ class AddEvent extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state)
+    console.log(this.props);
     this.props.hideComponent("showHideDemo1");
-    if (this.state.eventName && this.state.location && this.state.time) {
 
-    }
+    API.addEvent(this.props.trip._id, this.props.dateIndex,this.state);
+    window.location.reload();
+
   }
 
   render() {
