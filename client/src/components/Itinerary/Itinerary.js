@@ -100,6 +100,7 @@ class Itinerary extends React.Component {
               />
             )}
             {/* ))} */}
+<<<<<<< Updated upstream
             {showHideDemo2 && <AddEvent hideComponent = {this.hideComponent} dateIndex={this.state.dateIndex}/>}
             {/* {showHideDemo2 && (
               <Button
@@ -110,6 +111,11 @@ class Itinerary extends React.Component {
                 Cancel
               </Button>
             )} */}
+=======
+
+            {showHideDemo2 && <AddEvent trip={this.props.trip} hideComponent = {this.hideComponent} dateIndex={this.state.dateIndex} />}
+           
+>>>>>>> Stashed changes
             {/* {showHideDemo2 && (
               <Button
                 onClick={() => this.hideComponent("showHideDemo1")}
