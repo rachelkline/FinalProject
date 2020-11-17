@@ -38,8 +38,10 @@ class AddEvent extends Component {
     console.log(this.state)
     console.log(this.props);
     this.props.hideComponent("showHideDemo1");
+
     API.addEvent(this.props.trip._id, this.props.dateIndex,this.state);
     window.location.reload();
+
   }
 
   render() {
@@ -63,13 +65,29 @@ class AddEvent extends Component {
           <Form.Group id="time" value={this.state.time} onChange={this.handleInputChange}>
             <Form.Control name="time"  type="text" placeholder="Time" />
           </Form.Group>
+          <Row>
+            <Col>
           <Button
+            style={{width: "100%"}}
             type="submit"
             // onClick={() => this.props.hideComponent("showHideDemo1")}
             variant="primary"
           >
             Confirm
           </Button>
+          </Col>
+          <Col>
+          <Button
+          style={{width: "100%"}}
+                className="mr-2"
+                // props.onClick(radio.date)
+                onClick={() => this.props.hideComponent("showHideDemo1")}
+                variant="outline-primary"
+              >
+                Cancel
+              </Button>
+              </Col>
+              </Row>
         </Form>
 
         {/* <Button variant="primary">Request Payment</Button>

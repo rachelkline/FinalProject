@@ -2,7 +2,16 @@ import React from "react";
 import Test from "../Budget/test";
 import Itinerary from "../Itinerary/Itinerary";
 import Nested from "../Friends/Friends";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faBriefcase,
+  faPaperPlane,
+  faQuestion,
+  faPen,
+  faLocationArrow,
+  faCode,
+} from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 class Main extends React.Component {
@@ -10,6 +19,8 @@ class Main extends React.Component {
     super(props);
   }
   render() {
+    const tripLocation = <FontAwesomeIcon icon={faLocationArrow} />
+    const codeIcon = <FontAwesomeIcon icon={faCode} />
     return (
       // <Container fluid className="p-3">
       <Container className="p-3">
@@ -47,17 +58,18 @@ class Main extends React.Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Card className="shadow">
-                  <Card.Body>Location: {this.props.trip.location} </Card.Body>
+                  <Card.Body><strong>{tripLocation}</strong> {'\u00A0'}  {this.props.trip.location} </Card.Body>
                 </Card>
               </Col>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Card className="shadow mt-3">
-                  <Card.Body>Trip Code: {this.props.trip._id}</Card.Body>
+                  <Card.Body><strong>{codeIcon}</strong> {'\u00A0'}  {this.props.trip._id}</Card.Body>
                 </Card>
               </Col>
             </Row>
-            <br />
-            <Itinerary trip={this.props.trip} />
+            <div className="mt-3">
+            <Itinerary trip={this.props.trip}/>
+            </div>
           </Col>
         </Row>
 

@@ -94,12 +94,16 @@
   
   .nav-item {
     /*color: #ced4da;*/
-    color: #adb5bd;
+    color: #6b666a;
     font-weight: 300;
   }
   
   .nav-item.open {
     color: #e9ecef;
+    background: #63789b;
+  }
+  .bigtest.open {
+    color: #30373f;
     background: #63789b;
   }
   
@@ -109,9 +113,10 @@
   }
   
   .nav-item:hover {
-    background: #313b4c;
-    color: #fff;
-    transition: .2s;
+    background: #ffffff;
+    color: rgb(39, 39, 39);
+    transition: .05s;
+    font-weight: bold;
   }
   
   .nav-item .svg-inline--fa {

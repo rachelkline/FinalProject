@@ -40,7 +40,6 @@ class Nested extends React.PureComponent {
                         <Card.Body>
                             <div className="config">
 
-
                                 <Card.Title  style={{ display: "flex" }}><span className="mt-1"><strong>{friend.name}</strong></span>
 
                                     <input
