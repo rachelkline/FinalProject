@@ -10,10 +10,10 @@ const friends = [
 
 ];
 const ledger = [
-    { name: 'Sally McSally', description: 'For the dinner tab', amount:50 },
-    { name: 'Bill Billerson', description: 'Drinks and snacks', amount:14 },
-    { name: 'Frank Smith', description: 'Hotel fees', amount:45 },
-    { name: 'Greg Smith', description: 'Gas money', amount:30 },
+    { name: 'Andrew Bretnall', description: 'For the dinner tab', amount:40 },
+    { name: 'Rachel Kline', description: 'Drinks and snacks', amount:24 },
+    { name: 'Ryan Seckman', description: 'Hotel fees', amount:45 },
+    { name: 'Francesca Poliseno', description: 'Gas money', amount:30 },
   ];
 
 class Nested extends React.PureComponent {

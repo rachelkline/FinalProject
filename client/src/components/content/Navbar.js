@@ -1,19 +1,15 @@
 import React, { Component, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route, Link } from "react-router-dom";
-
 import { faAlignLeft } from "@fortawesome/free-solid-svg-icons";
 import { Navbar, Button, Nav } from "react-bootstrap";
 import axios from "axios";
 import {AuthContext} from '../../contexts/auth-provider';
-
 import "./nav.css";
-
 function NavBar(props) {
-
   const {logoutUser} = useContext(AuthContext);
   const logout = function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     console.log("logging out");
     axios
       .post("/user/logout")
@@ -27,7 +23,6 @@ function NavBar(props) {
         console.log("Logout error");
       });
   }
-    
     return (
       <Navbar
         bg="light"
@@ -39,7 +34,6 @@ function NavBar(props) {
         </Button>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand href="/dashboard" className="ml-4 pt-2">
- 
       Travel Buddy
     </Navbar.Brand>
     <Nav className="justify-content-end ml-auto">
@@ -49,9 +43,6 @@ function NavBar(props) {
     </Nav.Item>
   </Nav>
       </Navbar>
-      
     );
-  
 }
-
 export default NavBar;

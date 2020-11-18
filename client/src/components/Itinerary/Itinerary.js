@@ -29,11 +29,17 @@ class Itinerary extends React.Component {
       showHideDemo1: true,
       showHideDemo2: false,
       dateIndex: 0,
+      
     };
     this.hideComponent = this.hideComponent.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
+
   }
+
   handleClick(dateIndex) {
+    console.log(dateIndex)
+
     console.log("test");
     var dateZero = dateIndex - parseInt(this.props.trip.tripLength[0].date);
     this.setState({ dateIndex: dateZero });
@@ -77,8 +83,8 @@ class Itinerary extends React.Component {
               )}
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-              {this.props.trip.tripLength[0].month}{" "}
-              {this.props.trip.tripLength[0].year}
+              {radios[this.state.dateIndex].month}{" "} {radios[this.state.dateIndex].date}, {radios[this.state.dateIndex].year}
+              
             </Card.Subtitle>
             {/* {this.state.dates.map((item, index) => ( */}
             {/* {days.map((day, i) => ( */}

@@ -12,11 +12,11 @@ class Display extends React.Component {
 
     // Moblie first
     this.state = {
-      isOpen: false,
-      isMobile: true,
+      isOpen: true,
+      isMobile: false,
     };
 
-    this.previousWidth = -1;
+    
   }
 
   updateWidth() {
@@ -24,31 +24,22 @@ class Display extends React.Component {
     const widthLimit = 576;
     const isMobile = width <= widthLimit;
     const wasMobile = this.previousWidth <= widthLimit;
-
     if (isMobile !== wasMobile) {
       this.setState({
         isOpen: !isMobile,
       });
     }
-
     this.previousWidth = width;
   }
-
-  /**
-   * Add event listener
-   */
   componentDidMount() {
     this.updateWidth();
     window.addEventListener("resize", this.updateWidth.bind(this));
+
   }
 
-  /**
-   * Remove event listener
-   */
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWidth.bind(this));
   }
-
   toggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
@@ -56,14 +47,12 @@ class Display extends React.Component {
   render() {
     return (
       <div className="App wrapper">
+        
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
-        <Row>
+        <Row className="width">
           
-          <SideBar
-            trips={this.props.trips}
-            toggle={this.toggle}
-            isOpen={this.state.isOpen}
-          />
+        <SideBar toggle={this.toggle} isOpen={this.state.isOpen} trips={this.props.trips} />
+
 
           <Col>
             <Main trip={this.props.trip} />

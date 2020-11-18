@@ -21,3 +21,11 @@ background-color: #164D74 !important ;
 .navbar-light .navbar-nav .nav-link {
     color: rgb(255, 255, 255);
 }
+.colorWhite{
+    color: white;
+
+}
+.colorWhite:hover{
+    background-color: none;
+    
+}

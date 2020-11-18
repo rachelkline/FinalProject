@@ -2,9 +2,10 @@ hr {
     border: 0;
     clear:both;
     display:block;
-    width: 100%;               
+    width: 107% ;               
     background-color:#e4e2ee;
     height: 1px;
+    margin-left: -1rem;
   }
   .centered{
     text-align: center;
